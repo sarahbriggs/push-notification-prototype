@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
 
 	def create
 		Aws.config.update({
-        	credentials: Aws::Credentials.new('', ''), 
+        	credentials: Aws::Credentials.new('', 
+        		''), 
         	region: 'us-east-2'})
 	    sns_client ||= Aws::SNS::Client.new
 	    topic = 'arn:aws:sns:us-east-2:877941893971:snsTest'
