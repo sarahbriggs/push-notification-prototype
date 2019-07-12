@@ -4,6 +4,7 @@
     <% @traders.each do |trader| %>
     <div class="trader">
       <%= trader.name %>
+      <%= link_to '<button type="button">Subscribe</button>'.html_safe, "new" %>
     </div>
     <% end %>
   </div>
