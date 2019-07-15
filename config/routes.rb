@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'subscription/index'
   root 'subscription#index'
 
-  get 'subscription/create'
+  post 'subscription/create'
   root 'subscription#create'
 
   get 'subscription/new'

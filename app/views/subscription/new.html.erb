@@ -1,1 +1,9 @@
-<h1>New Subscription</h1>
+<div class="main">
+  <h2>Available Traders</h2>
+    <% @traders.each do |trader| %>
+    <div class="trader">
+      <%= trader.name %>
+      <%= button_to "New Subscription", { :action => "create", :name => trader.name } %>
+    </div>
+    <% end %>
+</div>
