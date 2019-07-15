@@ -3,9 +3,9 @@ class SubscriptionController < ApplicationController
 	end
 
 	def new
+		@traders = Trader.all
 	end
 
 	def create
-		@traders = Trader.all
 	end  
 end

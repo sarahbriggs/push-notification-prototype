@@ -22,8 +22,8 @@
 #     t.datetime "updated_at", null: false
 #   end
 
-Trader.create([{ trader_id: 0 }, { name: 'Tom Sosnoff' }])
-Trader.create([{ trader_id: 1 }, { name: 'Vonetta Logan' }])
+Trader.create(trader_id: 0, name: 'Tom')
+Trader.create(trader_id: 1, name: 'Vonetta')
 
-User.create([{ user_id: 0 }, { name: 'Sarah' }, { email: 'sarah.briggs@tastytrade.com' }])
-User.create([{ user_id: 1 }, { name: 'Carolyn' }, { email: 'carolyn.blumberg@tastytrade.com' }])
+User.create(user_id: 0, name: 'Sarah', email: 'sarah.briggs@tastytrade.com')
+User.create(user_id: 1, name: 'Carolyn', email: 'carolyn.blumberg@tastytrade.com')
