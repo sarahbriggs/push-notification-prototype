@@ -1889,3 +1889,930 @@ Migrating to CreateUsers (20190712152903)
   ↳ db/seeds.rb:29
   [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
   ↳ db/seeds.rb:29
+Started GET "/" for ::1 at 2019-07-15 10:55:48 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 256ms (Views: 248.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-15 10:56:16 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 62ms (Views: 48.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for ::1 at 2019-07-15 10:56:46 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qlf8hoeHFfwPWZEgxosOL0nFNLVkwLobZHz2eFr/VvFO52ExHaITTYMnlHRcKPZuzXEJVTX+D+W3eftfudvp8A==", "user"=>{"name"=>"Sarahlyn", "email"=>"sarahlyn@tastytrade.com"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sarahlyn"], ["email", "sarahlyn@tastytrade.com"], ["created_at", "2019-07-15 15:56:46.877639"], ["updated_at", "2019-07-15 15:56:46.877639"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/4" for ::1 at 2019-07-15 10:56:46 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 47ms (Views: 41.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/index" for ::1 at 2019-07-15 10:56:51 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/index" for ::1 at 2019-07-15 12:21:06 -0500
+Processing by UsersController#index as */*
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 107ms (Views: 77.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/index" for ::1 at 2019-07-15 12:21:26 -0500
+Processing by UsersController#index as */*
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 82ms (Views: 48.4ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "subscriptions"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "subscriptions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "trader_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_trader_id" ON "subscriptions" ("trader_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_user_id" ON "subscriptions" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "traders"[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "traders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trader_id" integer, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:31
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "subscriptions"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "subscriptions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "trader_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_trader_id" ON "subscriptions" ("trader_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_user_id" ON "subscriptions" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "traders"[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "traders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trader_id" integer, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "development"], ["updated_at", "2019-07-15 17:56:48.071529"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-07-15 17:56:48.075892"], ["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mTrader Create (0.3ms)[0m  [1m[32mINSERT INTO "traders" ("trader_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["trader_id", 0], ["name", "Tom"], ["created_at", "2019-07-15 17:56:57.739575"], ["updated_at", "2019-07-15 17:56:57.739575"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:26
+  [1m[36mTrader Create (0.2ms)[0m  [1m[32mINSERT INTO "traders" ("trader_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["trader_id", 1], ["name", "Vonetta"], ["created_at", "2019-07-15 17:56:57.741862"], ["updated_at", "2019-07-15 17:56:57.741862"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("user_id", "name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 0], ["name", "Sarah"], ["email", "sarah.briggs@tastytrade.com"], ["created_at", "2019-07-15 17:56:57.751569"], ["updated_at", "2019-07-15 17:56:57.751569"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("user_id", "name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["name", "Carolyn"], ["email", "carolyn.blumberg@tastytrade.com"], ["created_at", "2019-07-15 17:56:57.754328"], ["updated_at", "2019-07-15 17:56:57.754328"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/bin/rake:23
+Started GET "/users/index" for ::1 at 2019-07-15 12:57:14 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 104ms (Views: 73.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/index" for ::1 at 2019-07-15 12:57:23 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subscription/create" for ::1 at 2019-07-15 12:57:30 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/subscription/create"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `call'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/subscription/new" for ::1 at 2019-07-15 12:57:35 -0500
+Processing by SubscriptionController#new as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscriptions/nwe" for ::1 at 2019-07-15 13:00:15 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/subscriptions/nwe"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `call'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/subscriptions/new" for ::1 at 2019-07-15 13:00:18 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/subscriptions/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `call'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:00:24 -0500
+Processing by SubscriptionController#new as */*
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:00:49 -0500
+Processing by SubscriptionController#new as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:01:09 -0500
+Processing by SubscriptionController#new as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:02:14 -0500
+Processing by SubscriptionController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:04:13 -0500
+Processing by SubscriptionController#new as */*
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:04:33 -0500
+Processing by SubscriptionController#new as */*
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant SubscriptionController::Users):
+  
+app/controllers/subscription_controller.rb:7:in `new'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:04:51 -0500
+Processing by SubscriptionController#new as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 101ms (Views: 66.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:05:35 -0500
+Processing by SubscriptionController#new as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:4
+  Rendered subscription/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 86ms (Views: 50.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:06:03 -0500
+Processing by SubscriptionController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:4
+  Rendered subscription/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 69ms (Views: 40.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subscription/create" for ::1 at 2019-07-15 13:08:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/subscription/create"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `call'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:08:47 -0500
+Processing by SubscriptionController#new as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 97ms (Views: 51.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:08:58 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:08:59 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"sJXaj4gO2+yRM0sPWJj8mfGbyo58Sx+BgZzYOAhxTspUJUc4EivdXR1NTlvCOwTYdS/3bi11qn9SmdUf61Xxyw==", "trader"=>"Tom", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:10:30 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 46ms (Views: 31.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:10:31 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"CydZoM8LFxm8mXYz/u4ApJfjOsQH8QaKiJPD7Ik8BSTvl8QXVS4RqDDnc2dkTfjlE1cHJFbPs3Rbls7Lahi6JQ==", "trader"=>"Tom", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (144.3ms)
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `trader' for #<#<Class:0x007f7fb50abf40>:0x007f7fb605abd0>):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= trader.name %>
+    4:   <%= user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093245700880'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:10:48 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:10:49 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"PZxzR6Its50Ku4goWG7HPDiXtLFJnB6+rRh6N4JncFXZLO7wOAi1LIbFjXzCzT99vCOJURiiq0B+HXcQYUPPVA==", "trader"=>"Tom", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "Tom":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader.name %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093218436740'
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:11:44 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"PZxzR6Its50Ku4goWG7HPDiXtLFJnB6+rRh6N4JncFXZLO7wOAi1LIbFjXzCzT99vCOJURiiq0B+HXcQYUPPVA==", "trader"=>"Tom", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "Tom":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader.name %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093218677260'
+Started POST "/subscription/create?trader=Vonetta&user=1" for ::1 at 2019-07-15 13:11:51 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"PZxzR6Its50Ku4goWG7HPDiXtLFJnB6+rRh6N4JncFXZLO7wOAi1LIbFjXzCzT99vCOJURiiq0B+HXcQYUPPVA==", "trader"=>"Vonetta", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "Vonetta":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader.name %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093212270720'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:12:27 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    3:     <% @traders.each do |trader| %>
+    4:     <div class="trader">
+    5:       <%= trader.name %>
+    6:       <%= button_to "New Subscription", { :action => "create", :trader => @trader.name, :user => @user.name } %>
+    7:     </div>
+    8:     <% end %>
+    9: </div>
+  
+app/views/subscription/new.html.erb:6:in `block in _app_views_subscription_new_html_erb__1831760385583200930_70093245793640'
+app/views/subscription/new.html.erb:3:in `_app_views_subscription_new_html_erb__1831760385583200930_70093245793640'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:12:55 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (95.9ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f7fb50abf40>:0x007f7fac19f568>):
+    3:     <% @traders.each do |trader| %>
+    4:     <div class="trader">
+    5:       <%= trader.name %>
+    6:       <%= button_to "New Subscription", { :action => "create", :trader => trader.name, :user => user.name } %>
+    7:     </div>
+    8:     <% end %>
+    9: </div>
+  
+app/views/subscription/new.html.erb:6:in `block in _app_views_subscription_new_html_erb__1831760385583200930_70093162507400'
+app/views/subscription/new.html.erb:3:in `_app_views_subscription_new_html_erb__1831760385583200930_70093162507400'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:13:05 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/subscription/create?trader=Tom" for ::1 at 2019-07-15 13:13:06 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"chfV/q0MaiStjr7CtRyFxNkAKNzPX3sjuQUh1XsODGGWp0hJNylslSHwu5Yvv32FXbQVPJ5hzt1qACzymCqzYA==", "trader"=>"Tom"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subscription/create?trader=Tom" for ::1 at 2019-07-15 13:14:50 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/subscription/create"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `call'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/subscription/create?trader=Tom" for ::1 at 2019-07-15 13:14:53 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"chfV/q0MaiStjr7CtRyFxNkAKNzPX3sjuQUh1XsODGGWp0hJNylslSHwu5Yvv32FXbQVPJ5hzt1qACzymCqzYA==", "trader"=>"Tom"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (92.8ms)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `trader' for #<#<Class:0x007f7fb50abf40>:0x007f7fb59a2450>):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= trader %>
+    4:   <%= user %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093242177380'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:15:04 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (93.7ms)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f7fb50abf40>:0x007f7fb40139f8>):
+    3:     <% @traders.each do |trader| %>
+    4:     <div class="trader">
+    5:       <%= trader.name %>
+    6:       <%= button_to "New Subscription", { :action => "create", :trader => trader.name, :user => user.name } %>
+    7:     </div>
+    8:     <% end %>
+    9: </div>
+  
+app/views/subscription/new.html.erb:6:in `block in _app_views_subscription_new_html_erb__1831760385583200930_70093228804620'
+app/views/subscription/new.html.erb:3:in `_app_views_subscription_new_html_erb__1831760385583200930_70093228804620'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:15:06 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (148.2ms)
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f7fb50abf40>:0x007f7fb26d36c8>):
+    3:     <% @traders.each do |trader| %>
+    4:     <div class="trader">
+    5:       <%= trader.name %>
+    6:       <%= button_to "New Subscription", { :action => "create", :trader => trader.name, :user => user.name } %>
+    7:     </div>
+    8:     <% end %>
+    9: </div>
+  
+app/views/subscription/new.html.erb:6:in `block in _app_views_subscription_new_html_erb__1831760385583200930_70093245795600'
+app/views/subscription/new.html.erb:3:in `_app_views_subscription_new_html_erb__1831760385583200930_70093245795600'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:16:25 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (171.4ms)
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f7fb50abf40>:0x007f7fb2c59570>):
+    3:     <% @traders.each do |trader| %>
+    4:     <div class="trader">
+    5:       <%= trader.name %>
+    6:       <%= button_to "New Subscription", { :action => "create", :trader => trader.name, :user => user } %>
+    7:     </div>
+    8:     <% end %>
+    9: </div>
+  
+app/views/subscription/new.html.erb:6:in `block in _app_views_subscription_new_html_erb__1831760385583200930_70093218435260'
+app/views/subscription/new.html.erb:3:in `_app_views_subscription_new_html_erb__1831760385583200930_70093218435260'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:16:43 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:16:44 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"6+gGIG5knP6AcvVFJJft2E++Jbc6e9xJdpb8s9eaF2kPWJuX9EGaTwwM8BG+NBWZywoYV2tFabelk/GUNL6oaA==", "trader"=>"Tom", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "1":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:4:in `_app_views_subscription_create_html_erb__30886881149184136_70093218925080'
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:17:33 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"6+gGIG5knP6AcvVFJJft2E++Jbc6e9xJdpb8s9eaF2kPWJuX9EGaTwwM8BG+NBWZywoYV2tFabelk/GUNL6oaA==", "trader"=>"Tom", "user"=>"1"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "1":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:4:in `_app_views_subscription_create_html_erb__30886881149184136_70093237503780'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:17:37 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 47ms (Views: 28.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/subscription/create?trader=Tom&user=Sarah" for ::1 at 2019-07-15 13:17:38 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"OLIWZ96l+a68kCZ/vCfcKDhqX2NuDhtdAox3UCdRFF7cAovQRID/HzDuIysmhCRpvN5igz8wrqPRiXp3xHWrXw==", "trader"=>"Tom", "user"=>"Sarah"}
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "Sarah":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:4:in `_app_views_subscription_create_html_erb__30886881149184136_70093173920760'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:18:43 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 50ms (Views: 28.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:18:44 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 41ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/subscription/create?trader=Tom&user=1" for ::1 at 2019-07-15 13:18:45 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"aa/46bwz9BSeetdsU4TzSTTLBVL1dhyK4ppBcQik0uqNH2VeJhbypRIE0jjJJwsIsH84sqRIqXQxn0xW64Bt6w==", "trader"=>"Tom", "user"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:12
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "Tom":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader.name %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093182312920'
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:19:05 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/subscription/create?trader=1&user=1" for ::1 at 2019-07-15 13:19:06 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"gWP3SCzFAzBGEvKOfG9DtYO1lTTdqN904zWDCdBvzhBl02r/tuAFgcps99rmzLv0BwGo1IyWaoowMI4uM0txEQ==", "trader"=>"1", "user"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:12
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "1":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader.name %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093212500020'
+Started POST "/subscription/create?trader=1&user=1" for ::1 at 2019-07-15 13:24:12 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"gWP3SCzFAzBGEvKOfG9DtYO1lTTdqN904zWDCdBvzhBl02r/tuAFgcps99rmzLv0BwGo1IyWaoowMI4uM0txEQ==", "trader"=>"1", "user"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:12
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for "1":String):
+    1: <div class="main">
+    2:   <h1>New Subscription Created!</h1>
+    3:   <%= @trader.name %>
+    4:   <%= @user.name %>
+    5: </div>
+  
+app/views/subscription/create.html.erb:3:in `_app_views_subscription_create_html_erb__30886881149184136_70093218595160'
+Started POST "/subscription/create?trader=1&user=1" for ::1 at 2019-07-15 13:24:28 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"gWP3SCzFAzBGEvKOfG9DtYO1lTTdqN904zWDCdBvzhBl02r/tuAFgcps99rmzLv0BwGo1IyWaoowMI4uM0txEQ==", "trader"=>"1", "user"=>"1"}
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:12
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 66ms (Views: 38.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/subscription/new" for ::1 at 2019-07-15 13:24:51 -0500
+Processing by SubscriptionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:7
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  Rendered subscription/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/subscription/create?trader=2&user=1" for ::1 at 2019-07-15 13:24:53 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"zRE6jMg5g2nJMrpUc7vKH4YtERLexjrWOaui/i74s98poac7UhyF2EVMvwDpGDJeApks8o/4jyjqrq/ZzdwM3g==", "trader"=>"2", "user"=>"1"}
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:12
+  Rendering subscription/create.html.erb within layouts/application
+  Rendered subscription/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
