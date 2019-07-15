@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user, only: [:index, :show]
   def index
       @users = User.all
   end
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
           session[:user_id] = @user.id
           redirect_to @user, alert: "SUCCESS"
       else
-          redirect_to new_user_path, alert: "ERROR"
+          redirect_to action: 'new', alert: "ERROR"
       end
   end
 
