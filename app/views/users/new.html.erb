@@ -5,8 +5,12 @@
     <%= f.label :email %>
     <%= f.text_field :email %>
 
-    <%= f.submit "Submit", :class => "btn"%>
+	<%= f.label :password %>
+    <%= f.password_field :password %>
 
-    <%= link_to "Learn more", user_path(f) %> 
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Submit", :class => "btn"%>
 
 <% end %>
