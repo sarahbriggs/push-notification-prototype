@@ -2816,6 +2816,7 @@ Processing by SubscriptionController#create as HTML
 Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.3ms)
 
 
+<<<<<<< HEAD
 Started GET "/subscription/create?trader=2&user=1" for ::1 at 2019-07-15 13:27:37 -0500
   
 ActionController::RoutingError (No route matches [GET] "/subscription/create"):
@@ -3504,7 +3505,216 @@ Completed 200 OK in 87ms (Views: 51.9ms | ActiveRecord: 0.3ms)
 Started GET "/subscription/create?trader=1&user=1" for ::1 at 2019-07-15 14:31:05 -0500
   
 ActionController::RoutingError (No route matches [GET] "/subscription/create"):
+
+Started POST "/users" for 127.0.0.1 at 2019-07-15 14:02:39 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x6x6NL0WmFalyjoqyLJXLMNOjDgscsDmcqveaVWgaUwLJasPf5/rRPLTkUjo+28ewWo62as2GUAeShuMSJjd7A==", "user"=>{"name"=>"sdter", "email"=>"jyrt", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+Unpermitted parameter: :password_confirmation
+Completed 500 Internal Server Error in 230ms (ActiveRecord: 0.0ms)
+
+
   
+NoMethodError (undefined method `password_digest=' for #<User:0x007fabbc9221c8>):
+  
+app/controllers/users_controller.rb:11:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+Migrating to CreateUsers (20190712152903)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mDROP INDEX "index_users_on_email"[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+Started GET "/users/new" for 127.0.0.1 at 2019-07-15 14:04:08 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 308ms (Views: 285.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-07-15 14:04:13 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"82QLOEoOdDc3H9pzObw/yAWy5xwNvt815iUU9u/uH7w/7doDiIcHJWAGcREZ9Qf6B5ZR/Yr6BpOKxNET8tarHA==", "user"=>{"name"=>"sdf", "email"=>"htr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+Unpermitted parameter: :password_confirmation
+Completed 500 Internal Server Error in 228ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x007f9a9a94af70>):
+  
+app/controllers/users_controller.rb:11:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+Migrating to CreateSubscriptions (20190712152758)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "subscriptions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "trader_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190712152758_create_subscriptions.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_user_id" ON "subscriptions" ("user_id")[0m
+  ↳ db/migrate/20190712152758_create_subscriptions.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_trader_id" ON "subscriptions" ("trader_id")[0m
+  ↳ db/migrate/20190712152758_create_subscriptions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190712152758"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+Migrating to CreateTraders (20190712152845)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "traders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trader_id" integer, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190712152845_create_traders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190712152845"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+Migrating to CreateUsers (20190712152903)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar, "password_digest" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190712152903_create_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20190712152903_create_users.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190712152903"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-15 19:05:43.467731"], ["updated_at", "2019-07-15 19:05:43.467731"]]
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/bin/rake:23
+Started GET "/users" for 127.0.0.1 at 2019-07-15 14:06:05 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 208ms (Views: 192.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-07-15 14:06:08 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 66ms (Views: 50.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-07-15 14:06:18 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EnkO+2AfJyOsHlztoPA6+tln2iM+NFrrHlaBhuTg97ne8N/AopZUMfsH94+AuQLI20Nswrlwg01yt0Rj+dhDGQ==", "user"=>{"name"=>"sdfs", "email"=>"sdfds", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "sdfs"], ["password_digest", "$2a$12$U6Gxshd/SaENV.nt8GXCmuZyI2KesOuAs8NpuT56rAP5PqdDutIT."], ["email", "sdfds"], ["created_at", "2019-07-15 19:06:18.769328"], ["updated_at", "2019-07-15 19:06:18.769328"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 233ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-07-15 14:06:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 49ms (Views: 41.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-07-15 14:06:21 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2019-07-15 14:09:57 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 249ms (Views: 233.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-07-15 14:17:14 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 270ms (Views: 247.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2019-07-15 14:17:18 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-07-15 14:20:35 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 65ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2019-07-15 14:25:55 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+
 actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
 web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
@@ -3533,6 +3743,7 @@ puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `call'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+<<<<<<< HEAD
 Started POST "/subscription/create?trader=1&user=1" for ::1 at 2019-07-15 14:31:46 -0500
 Processing by SubscriptionController#create as */*
   Parameters: {"trader"=>"1", "user"=>"1"}
@@ -3611,7 +3822,16 @@ activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.r
 actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
 actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
 rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
-railties (5.2.3) lib/rails/engine.rb:524:in `call'
+railties=======
+Started GET "/users/new" for 127.0.0.1 at 2019-07-15 14:02:31 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 455ms (Views: 430.2ms | ActiveRecord: 0.4ms)
+
+ (5.2.3) lib/rails/engine.rb:524:in `call'
 puma (3.12.1) lib/puma/configuration.rb:227:in `call'
 puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
@@ -3791,5 +4011,4 @@ Processing by SubscriptionController#index as HTML
   ↳ app/views/subscription/index.html.erb:2
   Rendered subscription/index.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.2ms)
-
 

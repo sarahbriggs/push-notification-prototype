@@ -14,11 +14,14 @@ Rails.application.routes.draw do
   get 'subscription/new'
   root 'subscription#new'
 
-  get "users/index"
-  get "users/new"
-  get "users/create"
-  get "users/show"
+  get 'users/index'
+  get 'users/new'
+  get 'users/create'
+  get 'users/show'
   resources :users
-  
+
+  get '/login' => 'sessions#new'  
+  post '/login' => 'sessions#create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
