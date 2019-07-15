@@ -3,7 +3,7 @@
     <% @traders.each do |trader| %>
     <div class="trader">
       <%= trader.name %>
-      <%= button_to "New Subscription", { :action => "create", :name => trader.name } %>
+      <%= button_to "New Subscription", { :action => "create", :trader => trader, :user => @user } %>
     </div>
     <% end %>
 </div>
