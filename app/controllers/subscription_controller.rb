@@ -41,7 +41,10 @@ class SubscriptionController < ApplicationController
 			# unsubscribe here ... need SubscriptionArn
 
 			# this doesn't work
-			# sns_client.unsubscribe({subscription_arn: @sub_arn})
+			sns_client.unsubscribe
+			({
+				subscription_arn: @sub_arn, # required 
+			})
 
 			redirect_to action: 'index', alert: "SUCCESS"
 		else

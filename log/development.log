@@ -34556,3 +34556,338 @@ Processing by SubscriptionController#index as HTML
 Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/subscribe" for ::1 at 2019-07-16 16:00:14 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 66ms (Views: 55.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:00:16 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/subscription?trader=1" for ::1 at 2019-07-16 16:00:18 -0500
+Processing by SubscriptionController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mZ3SwZ70G0l0XhRttKX23tqEsl19bEJmiLb6WUNtEz59LU92BNEd+PggETkuBg6fXjCPvSxS95hbs/d+oEmsPw==", "trader"=>"1"}
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."user_id" = ? AND "subscriptions"."trader_id" = ? LIMIT ?[0m  [["user_id", 1], ["trader_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:38
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[36mSubscription Destroy (0.4ms)[0m  [1m[31mDELETE FROM "subscriptions" WHERE "subscriptions"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+Redirected to http://localhost:3000/subscription/index?alert=SUCCESS
+Completed 302 Found in 19ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:00:18 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:5
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:6
+  Rendered subscription/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 65ms (Views: 59.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:00:19 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:5
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:6
+  Rendered subscription/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:00:20 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/subscription?trader=2" for ::1 at 2019-07-16 16:00:21 -0500
+Processing by SubscriptionController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2F1nkeiZuKruKXkm3RGv5XDABpB+zytKslUttMVhg/k87fomcry+G2JXfHJHslek9HQ7cC/xnrRhUCCTJkU8+A==", "trader"=>"2"}
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."user_id" = ? AND "subscriptions"."trader_id" = ? LIMIT ?[0m  [["user_id", 1], ["trader_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:38
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[36mSubscription Destroy (0.3ms)[0m  [1m[31mDELETE FROM "subscriptions" WHERE "subscriptions"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+Redirected to http://localhost:3000/subscription/index?alert=SUCCESS
+Completed 302 Found in 15ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:00:21 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  Rendered subscription/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:00:23 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/subscription/create?trader=2" for ::1 at 2019-07-16 16:00:24 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"YZLj9+04Pp+FZqPwp8EL0NmL+uhCM35DWwGmqSpscmqFIn5Adx04LgkYpqQ9YvORXT/HCBMNy72IBKuOyUjNaw==", "trader"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/subscription_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[36mSubscription Create (0.5ms)[0m  [1m[32mINSERT INTO "subscriptions" ("user_id", "trader_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["trader_id", 2], ["created_at", "2019-07-16 21:00:24.278134"], ["updated_at", "2019-07-16 21:00:24.278134"]]
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:23
+Redirected to http://localhost:3000/subscription/index?alert=SUCCESS
+Completed 302 Found in 218ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:00:24 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:5
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:6
+  Rendered subscription/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:00:25 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:5
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:6
+  Rendered subscription/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:01:58 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/subscription?trader=2" for ::1 at 2019-07-16 16:01:59 -0500
+Processing by SubscriptionController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8dErcbjbJd+/OtsDDx3n7mCYSy8A8tn/bPTr+C8ic28VYbbGIv4jbjNE3leVvh+v5Cx2z1HMbAG/8ebfzAbMbg==", "trader"=>"2"}
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."user_id" = ? AND "subscriptions"."trader_id" = ? LIMIT ?[0m  [["user_id", 1], ["trader_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:38
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[36mSubscription Destroy (0.3ms)[0m  [1m[31mDELETE FROM "subscriptions" WHERE "subscriptions"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+Redirected to http://localhost:3000/subscription/index?alert=SUCCESS
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:01:59 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  Rendered subscription/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:02:00 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  Rendered subscription/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 40ms (Views: 36.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/subscription/create?trader=1" for ::1 at 2019-07-16 16:02:01 -0500
+Processing by SubscriptionController#create as HTML
+  Parameters: {"authenticity_token"=>"8dErcbjbJd+/OtsDDx3n7mCYSy8A8tn/bPTr+C8ic28VYbbGIv4jbjNE3leVvh+v5Cx2z1HMbAG/8ebfzAbMbg==", "trader"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/subscription_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[36mSubscription Create (0.3ms)[0m  [1m[32mINSERT INTO "subscriptions" ("user_id", "trader_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["trader_id", 1], ["created_at", "2019-07-16 21:02:01.878135"], ["updated_at", "2019-07-16 21:02:01.878135"]]
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subscription_controller.rb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:23
+Redirected to http://localhost:3000/subscription/index?alert=SUCCESS
+Completed 302 Found in 235ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:02:02 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:5
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:6
+  Rendered subscription/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subscription/index?alert=SUCCESS" for ::1 at 2019-07-16 16:02:03 -0500
+Processing by SubscriptionController#index as HTML
+  Parameters: {"alert"=>"SUCCESS"}
+  Rendering subscription/index.html.erb within layouts/application
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions"[0m
+  ↳ app/views/subscription/index.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:5
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT  "traders".* FROM "traders" WHERE "traders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subscription/index.html.erb:6
+  Rendered subscription/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:02:04 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:07:54 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.7ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 106ms (Views: 95.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/subscribe" for ::1 at 2019-07-16 16:07:54 -0500
+Processing by SubscriptionController#new as HTML
+  Rendering subscription/new.html.erb within layouts/application
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/subscription/new.html.erb:3
+  [1m[36mSubscription Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 1 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  [1m[36mSubscription Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "subscriptions" WHERE (trader_id = 2 and user_id = 1) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/subscription/new.html.erb:6
+  Rendered subscription/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/subscription?trader=1" for ::1 at 2019-07-16 16:08:04 -0500
+Processing by SubscriptionController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/3AMAkdRuEbTjgGJjQQmBI7w5euwxQ2PG8sJrOvsNqYbwJG13XS+91/wBN0Xp95FCkTYC+H7uHHIzgSLCMiJpw==", "trader"=>"1"}
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."user_id" = ? AND "subscriptions"."trader_id" = ? LIMIT ?[0m  [["user_id", 1], ["trader_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:38
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[36mSubscription Destroy (0.9ms)[0m  [1m[31mDELETE FROM "subscriptions" WHERE "subscriptions"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/subscription_controller.rb:40
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subscription_controller.rb:40
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.5ms)
+
+
+  
+ArgumentError (missing required parameter params[:subscription_arn]):
+  
+app/controllers/subscription_controller.rb:44:in `destroy'
