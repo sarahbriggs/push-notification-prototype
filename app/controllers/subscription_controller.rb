@@ -1,4 +1,5 @@
 class SubscriptionController < ApplicationController
+	before_action :require_user, only: [:new, :show]
 	def index
 		@subscriptions = Subscription.all
 	end
@@ -23,9 +24,8 @@ class SubscriptionController < ApplicationController
 		  	endpoint: User.find(@user).email,
 		  	return_subscription_arn: true
 		  })
-
 		  # @subscription.subscription_arn = @sub_arn
-          redirect_to action: 'index', alert: "SUCCESS"
+          redirect_to action: 'show', alert: "SUCCESS"
       	else
           redirect_to action: 'new', alert: "ERROR"
       end
@@ -50,7 +50,12 @@ class SubscriptionController < ApplicationController
 		else
           	redirect_to action: 'new', alert: "ERROR"
       end
-	end 
+	end
+
+	def show
+		@user = session[:user_id]
+		@subscriptions = User.find(@user).subscriptions
+	end
 
 end
 
