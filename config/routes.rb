@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'subscription/new'
   root 'subscription#new'
 
+  delete '/subscription' => 'subscription#destroy'
+
   get 'users/index'
   get 'users/new'
   get 'users/create'

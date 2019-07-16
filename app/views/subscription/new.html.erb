@@ -1,9 +1,13 @@
 <div class="main">
-  <h2>Available Traders</h2>
-    <% @traders.each do |trader| %>
-    <div class="trader">
-      <%= trader.name %>
-      <%= button_to "New Subscription", { :action => "create", :trader => trader } %>
-    </div>
-    <% end %>
+	<h2>Available Traders</h2>
+	<% @traders.each do |trader| %>
+	<div class="trader">
+		<%= trader.name %>
+		<% if ( Subscription.where(["trader_id = ? and user_id = ?", trader.id, @user]) ).exists? %>
+			<%= button_to "Unsubscribe", { :action => "destroy", :trader => trader }, method: :delete %>
+		<% else %>
+			<%= button_to "New Subscription", { :action => "create", :trader => trader } %>
+		<% end %> 
+	</div>
+	<% end %>
 </div>

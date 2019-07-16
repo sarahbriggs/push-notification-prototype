@@ -5,6 +5,7 @@ class SubscriptionController < ApplicationController
 
 	def new
 		@traders = Trader.all
+		@user = session[:user_id]
 	end
 
 	def create
@@ -14,13 +15,14 @@ class SubscriptionController < ApplicationController
 		@subscription.trader_id = @trader
 		if @subscription.save
 		  # create subscription here 
+		  
 		  # TO DO: how to set credentials properly in config/development.rb? 
 		  Aws.config.update({
           credentials: Aws::Credentials.new('', 
             ''),
           region: 'us-east-2'})
 		  sns_client ||= Aws::SNS::Client.new
-		  
+
 		  topic = 'arn:aws:sns:us-east-2:877941893971:snsTest'
 		  sns_client.subscribe({
 		  	topic_arn: topic,
@@ -34,4 +36,13 @@ class SubscriptionController < ApplicationController
       end
 	end 
 
+	def destroy 
+	end 
+
 end
+
+
+
+
+
+
