@@ -1,18 +1,10 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  resources :articles
+  get '/welcome' => 'welcome#index'
   root 'welcome#index'
 
-  get '/welcome' => 'welcome#index'
-
   get 'subscription/index'
-  root 'subscription#index'
-
   post 'subscription/create'
-  root 'subscription#create'
-
-  get 'subscription/new'
-  root 'subscription#new'
+  get 'subscribe' => 'subscription#new'
 
   delete '/subscription' => 'subscription#destroy'
 
