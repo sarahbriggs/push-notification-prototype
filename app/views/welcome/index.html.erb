@@ -3,6 +3,7 @@
   <ul> 
     <li><%= current_user.email %></li> 
     <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+    <li><%= link_to "Subscribe to traders", 'subscribe' %></li> 
   </ul> 
 <% else %> 
   <ul> 
