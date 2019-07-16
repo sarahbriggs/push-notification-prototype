@@ -17,10 +17,11 @@ class SubscriptionController < ApplicationController
 		  sns_client ||= Aws::SNS::Client.new
 		  topic = 'arn:aws:sns:us-east-2:877941893971:snsTest'
 
-		  sns_client.subscribe({
+		  @sub_arn = sns_client.subscribe({
 		  	topic_arn: topic,
 		  	protocol: 'email',
-		  	endpoint: User.find(@user).email
+		  	endpoint: User.find(@user).email,
+		  	return_subscription_arn: true
 		  })
 
           redirect_to action: 'index', alert: "SUCCESS"
@@ -32,11 +33,13 @@ class SubscriptionController < ApplicationController
 	def destroy 
 		@user = session[:user_id]
 		@trader = params[:trader]
+		sns_client ||= Aws::SNS::Client.new
 		@sub_id = Subscription.find_by(user_id: @user, trader_id: @trader)
 		if Subscription.destroy(@sub_id.id)
-			sns_client ||= Aws::SNS::Client.new
+			# unsubscribe here ... need SubscriptionArn
 
-			# unsubscribe here ... need SubscriptionArn 
+			# this doesn't work 
+			#sns_client.unsubscribe({subscription_arn: @sub_arn})
 			
 			redirect_to action: 'index', alert: "SUCCESS"
 		else
