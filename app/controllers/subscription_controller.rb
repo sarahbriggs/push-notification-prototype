@@ -24,6 +24,7 @@ class SubscriptionController < ApplicationController
 		  	return_subscription_arn: true
 		  })
 
+		  # @subscription.subscription_arn = @sub_arn
           redirect_to action: 'index', alert: "SUCCESS"
       	else
           redirect_to action: 'new', alert: "ERROR"
@@ -35,12 +36,13 @@ class SubscriptionController < ApplicationController
 		@trader = params[:trader]
 		sns_client ||= Aws::SNS::Client.new
 		@sub_id = Subscription.find_by(user_id: @user, trader_id: @trader)
+
 		if Subscription.destroy(@sub_id.id)
 			# unsubscribe here ... need SubscriptionArn
 
-			# this doesn't work 
-			#sns_client.unsubscribe({subscription_arn: @sub_arn})
-			
+			# this doesn't work
+			# sns_client.unsubscribe({subscription_arn: @sub_arn})
+
 			redirect_to action: 'index', alert: "SUCCESS"
 		else
           	redirect_to action: 'new', alert: "ERROR"
