@@ -1,6 +1,7 @@
 <h1>Subscriptions</h1>
 <% @subscriptions.each do |subscription| %>
 <div>
+	<%= subscription.id %>
 	<%= User.find(subscription.user_id).name %>
 	<%= Trader.find(subscription.trader_id).name %>
 </div>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'subscription/index'
   post 'subscription/create'
+
   get 'subscribe' => 'subscription#new'
 
   delete '/subscription' => 'subscription#destroy'
