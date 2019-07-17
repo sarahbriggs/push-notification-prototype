@@ -7,9 +7,9 @@ class CreateSubscriptions < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index "subscriptions", [:user.user_id, :trader.trader_id], 
+    add_index "subscriptions", [:user_id, :trader_id], 
     :name => "index_subscriptions_on_user_and_trader", :unique => true
 
-    validates_uniqueness_of :user.user_id, :trader.trader_id
+    # validates_uniqueness_of :user_id, :trader_id
   end
 end
