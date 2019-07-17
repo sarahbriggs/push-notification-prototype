@@ -27,7 +27,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
- Aws.config.update({
+  Aws.config.update({
     credentials: Aws::Credentials.new('', 
       ''),
     region: 'us-east-2'})
