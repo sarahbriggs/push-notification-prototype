@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'subscribe' => 'subscription#new'
   delete '/subscription' => 'subscription#destroy'
   get 'my_subscriptions' => 'subscription#show'
+  resources :subscription
 
   get 'users/index'
   get 'users/new'

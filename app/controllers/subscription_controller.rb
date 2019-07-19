@@ -1,5 +1,5 @@
 class SubscriptionController < ApplicationController
-	before_action :require_user, only: [:new, :show]
+	# before_action :require_user, only: [:new, :show]
 	def index
 		@subscriptions = Subscription.all
 	end
