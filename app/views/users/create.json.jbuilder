@@ -1,1 +1,0 @@
-json.array! @user, as: :user

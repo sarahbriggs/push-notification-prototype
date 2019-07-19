@@ -1,16 +1,22 @@
 class SessionsController < ApplicationController
+	protect_from_forgery :except => :create
+
 	def new
 	end
 
 	def create
-	  @user = User.find_by_email(params[:session][:email])
+	  @user = User.find_by_email(params[:email])
+	  # if @user
+	  #   session[:user_id] = @user.id
+	  #   redirect_to '/'
+	  # else
+	  #   redirect_to action: 'new'
+	  # end 
 	  if @user
-	    session[:user_id] = @user.id
-	    redirect_to '/'
+	  	render :json => {:user_id => @user.id}
 	  else
-	    redirect_to action: 'new'
-
-	  end 
+	  	render :json => {}
+	  end
 	end 
 
 	def destroy
