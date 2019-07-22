@@ -1,5 +1,6 @@
 class SubscriptionController < ApplicationController
 	# before_action :require_user, only: [:new, :show]
+	protect_from_forgery :except => :create
 	def index
 		@subscriptions = Subscription.all
 	end
@@ -10,17 +11,42 @@ class SubscriptionController < ApplicationController
 	end
 
 	def create
-		@user = session[:user_id]
-		@trader = params[:trader]
-		@subscription = User.find(@user).subscriptions.create()
-		@subscription.trader_id = @trader
+		# @user = session[:user_id]
+		# @trader = params[:trader]
+		# @subscription = User.find(@user).subscriptions.create()
+		# @subscription.trader_id = @trader
+		
+		# sns_client ||= Aws::SNS::Client.new
+		# topic = 'arn:aws:sns:us-east-2:877941893971:snsTest'
+		# resp = sns_client.subscribe({
+		#   topic_arn: topic,
+		#   protocol: 'email',
+		#   endpoint: User.find(@user).email,
+		#   return_subscription_arn: false
+		# })
+		# @subscription.subscription_arn = resp.subscription_arn
+
+		# if @subscription.save
+        #   redirect_to action: 'show', alert: "SUCCESS"
+        # else
+        #   redirect_to action: 'new', alert: "ERROR"
+        #	end
+      	
+      	@user = User.find(params[:user_id])
+		@trader = Trader.find(params[:trader_id])
+		@subscription = @user.subscriptions.create()
+		@subscription.trader_id = @trader.id
 		
 		sns_client ||= Aws::SNS::Client.new
+		Aws.config.update({
+          credentials: Aws::Credentials.new('AKIAIWEYLU3WMFICTU2Q', 
+            'qYuMz1CLFmG1vBhiy7UvaYyCn0jooINQTKLGQpUq'),
+          region: 'us-east-2'})
 		topic = 'arn:aws:sns:us-east-2:877941893971:snsTest'
 		resp = sns_client.subscribe({
 		  topic_arn: topic,
 		  protocol: 'email',
-		  endpoint: User.find(@user).email,
+		  endpoint: @user.email,
 		  return_subscription_arn: false
 		})
 		@subscription.subscription_arn = resp.subscription_arn
@@ -29,7 +55,7 @@ class SubscriptionController < ApplicationController
           redirect_to action: 'show', alert: "SUCCESS"
       	else
           redirect_to action: 'new', alert: "ERROR"
-      end
+      	end
 	end 
 
 	def destroy 
