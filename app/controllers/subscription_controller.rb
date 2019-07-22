@@ -1,5 +1,7 @@
 class SubscriptionController < ApplicationController
 	# before_action :require_user, only: [:new, :show]
+	protect_from_forgery :except => :create
+	
 	def index
 		@subscriptions = Subscription.all
 	end
@@ -26,9 +28,11 @@ class SubscriptionController < ApplicationController
 		@subscription.subscription_arn = resp.subscription_arn
 
 		if @subscription.save
-          redirect_to action: 'show', alert: "SUCCESS"
+          #redirect_to action: 'show', alert: "SUCCESS"
+          render :json => {:message => ""}
       	else
-          redirect_to action: 'new', alert: "ERROR"
+          #redirect_to action: 'new', alert: "ERROR"
+          render :json => {:message => ""}
       end
 	end 
 

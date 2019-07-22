@@ -1,0 +1,18 @@
+<h1>Traders</h1>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>ID</th>
+    </thead>
+    <tbody>
+<% @traders.each do |trader| %>
+    <tr>
+        <td><%= trader.id %></td>
+        <td><%= trader.name %></td>
+    </tr>
+<% end %>
+    </tbody>
+</table>
+<ul>
+    <li><%= link_to "Home", '/' %></li>
+</ul>
