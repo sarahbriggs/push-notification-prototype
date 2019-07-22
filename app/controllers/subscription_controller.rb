@@ -52,11 +52,13 @@ class SubscriptionController < ApplicationController
 		@subscription.subscription_arn = resp.subscription_arn
 
 		if @subscription.save
-          redirect_to action: 'show', alert: "SUCCESS"
+          #redirect_to action: 'show', alert: "SUCCESS"
+          render :json => {:message => ""}
       	else
-          redirect_to action: 'new', alert: "ERROR"
+          #redirect_to action: 'new', alert: "ERROR"
+          render :json => {}
       	end
-	end 
+	end
 
 	def destroy 
 		@user = session[:user_id]

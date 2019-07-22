@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   # before_action :require_user, only: [:index, :show]
   protect_from_forgery :except => :create
   def index
-      @users = User.all
+    @users = User.all
   end
 
   def new
-      @user = User.new
+    @user = User.new
   end
 
   def create
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         render :json => {}
       end
   end
-
+  
   def show
     @user = User.find(params[:id])
   end
