@@ -23450,3 +23450,24 @@ Completed 500 Internal Server Error in 257ms (ActiveRecord: 2.3ms)
 Aws::SNS::Errors::InvalidClientTokenId (The security token included in the request is invalid.):
   
 app/controllers/subscription_controller.rb:42:in `create'
+Started POST "/sessions" for ::1 at 2019-07-23 09:15:44 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cblumberg/.rvm/gems/ruby-2.2.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"cb375@duke.edu", "session"=>{"email"=>"cb375@duke.edu"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cb375@duke.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trader/index.json" for ::1 at 2019-07-23 09:15:44 -0500
+Processing by TraderController#index as JSON
+  Rendering trader/index.json.jbuilder
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/views/trader/index.json.jbuilder:1
+  Rendered trader/_trader.json.jbuilder (0.8ms)
+  Rendered trader/_trader.json.jbuilder (0.2ms)
+  Rendered trader/index.json.jbuilder (12.4ms)
+Completed 200 OK in 31ms (Views: 20.3ms | ActiveRecord: 0.8ms)
+
+

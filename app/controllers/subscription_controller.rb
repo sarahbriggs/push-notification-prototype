@@ -38,10 +38,7 @@ class SubscriptionController < ApplicationController
 		@subscription.trader_id = @trader.id
 		
 		sns_client ||= Aws::SNS::Client.new
-		Aws.config.update({
-          credentials: Aws::Credentials.new('AKIAIWEYLU3WMFICTU2Q', 
-            'qYuMz1CLFmG1vBhiy7UvaYyCn0jooINQTKLGQpUq'),
-          region: 'us-east-2'})
+
 		topic = 'arn:aws:sns:us-east-2:877941893971:snsTest'
 		resp = sns_client.subscribe({
 		  topic_arn: topic,
