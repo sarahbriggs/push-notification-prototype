@@ -1,0 +1,7 @@
+<%= form_for(@trader) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit "Submit", :class => "btn"%>
+<% end %>
+<%= link_to "Or, return home!", '/welcome' %>
