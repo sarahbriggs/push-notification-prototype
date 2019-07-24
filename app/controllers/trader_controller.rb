@@ -13,7 +13,7 @@ class TraderController < ApplicationController
 	def create
 		@trader = Trader.new 
 		@trader.name = params[:name]
-
+		
 		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
 			name: @trader.name, # required
