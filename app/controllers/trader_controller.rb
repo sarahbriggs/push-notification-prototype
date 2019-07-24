@@ -16,7 +16,7 @@ class TraderController < ApplicationController
 
 		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
-			name: , # required
+			name: @trader.name, # required
 			tags: [
 				{
 					key: @trader.name, # required
