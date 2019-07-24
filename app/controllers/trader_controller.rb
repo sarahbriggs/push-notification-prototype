@@ -8,13 +8,24 @@ class TraderController < ApplicationController
 	end
 
 	def new
-		# @trader = Trader.new()
-		# @trader.name = "Carolyn"
-		# @trader.trader_arn = "aws::####::abc::test"
 	end
 
 	def create
-		@trader = Trader.new(trader_params)
+		@trader = Trader.new 
+		@trader.name = params[:name]
+
+		sns_client ||= Aws::SNS::Client.new
+		resp = sns_client.create_topic({
+			name: , # required
+			tags: [
+				{
+					key: @trader.name, # required
+					value: "", # required
+				},
+			]
+		})
+
+		@trader.trader_arn = resp.topic_arn
 		if @trader.save
 			render :json => {:trader_id => @trader.id}
 		else

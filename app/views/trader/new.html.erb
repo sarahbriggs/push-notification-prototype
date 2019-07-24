@@ -1,8 +1,8 @@
 <div class="main">
 	<h2>Add Trader</h2>
 	<%= form_tag("/create", method: "post") do %>
-	<%= label_tag(:q, "Name:") %>
-	<%= text_field_tag(:q) %>
+	<%= label_tag(:name, "Name:") %>
+	<%= text_field_tag(:name) %>
 	<%= submit_tag("Go") %>
 	<% end %>
 </div>
