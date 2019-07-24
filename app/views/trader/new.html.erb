@@ -1,1 +1,14 @@
-<h1>NEW TRADER</h1>
+<div class="main">
+	<h2>Add Trader</h2>
+	<% @trader do |trader| %>
+	<div class="trader">
+		<%= trader.name %>
+		<%= trader.trader_arn %>
+	</div>
+	<% end %>
+</div>
+
+<ul>
+    <li><%= link_to "View my current subscriptions", 'my_subscriptions' %></li>
+    <li><%= link_to "Home", '/' %></li>
+</ul>
