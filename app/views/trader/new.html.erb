@@ -1,11 +1,9 @@
 <div class="main">
 	<h2>Add Trader</h2>
-	<% @trader do |trader| %>
 	<div class="trader">
-		<%= trader.name %>
-		<%= trader.trader_arn %>
+		<%= @trader.name %>
+		<%= @trader.trader_arn %>
 	</div>
-	<% end %>
 </div>
 
 <ul>
