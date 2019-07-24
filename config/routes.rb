@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   get 'trader/index'
   get 'trader/new' => 'trader#new'
-  post 'trader' => 'trader#create'
+  post 'trader/create' => 'trader#create'
   resources :trader
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
