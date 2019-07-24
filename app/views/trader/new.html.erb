@@ -1,9 +1,11 @@
 <div class="main">
 	<h2>Add Trader</h2>
-	<div class="trader">
-		<%= @trader.name %>
-		<%= @trader.trader_arn %>
-	</div>
+	<%= form_for(@trader) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <%= f.submit "Submit", :class => "btn"%>
+    <% end %>
 </div>
 
 <ul>
