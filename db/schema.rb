@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_12_152903) do
 
   create_table "traders", force: :cascade do |t|
     t.string "name"
+    t.string "trader_arn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

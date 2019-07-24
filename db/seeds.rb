@@ -23,11 +23,11 @@
 #   end
 
 Trader.create(name: 'Tom', 
-	'arn:aws:sns:us-east-2:877941893971:tom_feed')
+	trader_arn: 'arn:aws:sns:us-east-2:877941893971:tom_feed')
 Trader.create(name: 'Vonetta',
-	'arn:aws:sns:us-east-2:877941893971:vonetta_feed')
+	trader_arn:'arn:aws:sns:us-east-2:877941893971:vonetta_feed')
 Trader.create(name: 'Fauzia', 
-	'arn:aws:sns:us-east-2:877941893971:fauzia_feed')
+	trader_arn:'arn:aws:sns:us-east-2:877941893971:fauzia_feed')
 
 User.create(name: 'Sarah', email: 'sarah.briggs@tastytrade.com')
 User.create(name: 'Carolyn', email: 'carolyn.blumberg@tastytrade.com')

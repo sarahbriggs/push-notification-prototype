@@ -36,7 +36,12 @@ class SubscriptionController < ApplicationController
 		@trader = Trader.find(params[:trader_id])
 		@subscription = @user.subscriptions.create()
 		@subscription.trader_id = @trader.id
-		
+
+		# get trader ARN 
+		# if ARN is null
+			# create new ARN 
+			# set ARN 
+
 		sns_client ||= Aws::SNS::Client.new
 		Aws.config.update({
           credentials: Aws::Credentials.new('AKIAIWEYLU3WMFICTU2Q', 
