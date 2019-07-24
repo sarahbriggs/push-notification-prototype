@@ -9,6 +9,8 @@ class TraderController < ApplicationController
 
 	def new
 		@trader = Trader.new 
+		@trader.name = "Carolyn"
+		@trader.trader_arn = "aws::####::abc::test"
 	end
 
 	def create
