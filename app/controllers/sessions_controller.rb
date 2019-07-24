@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	protect_from_forgery :except => :create
+	#protect_from_forgery :except => :create
 
 	def new
 	end

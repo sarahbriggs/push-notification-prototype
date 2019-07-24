@@ -28,8 +28,7 @@ Rails.application.configure do
   end
 
   Aws.config.update({
-    credentials: Aws::Credentials.new('', 
-      ''),
+    credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
     region: 'us-east-2'})
 
   # Store uploaded files on the local file system (see config/storage.yml for options)

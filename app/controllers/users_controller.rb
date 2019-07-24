@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # before_action :require_user, only: [:index, :show]
-  protect_from_forgery :except => :create
+  # protect_from_forgery :except => :create
+  
   def index
     @users = User.all
   end

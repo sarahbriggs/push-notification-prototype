@@ -1,12 +1,13 @@
 class SubscriptionController < ApplicationController
 	# before_action :require_user, only: [:new, :show]
-	protect_from_forgery :except => :create
+	# protect_from_forgery :except => :create
+	
 	def index
 		@subscriptions = Subscription.all
 	end
 
 	def new
-		@traders = Trader.all
+	3	@traders = Trader.all
 		@user = session[:user_id]
 	end
 
