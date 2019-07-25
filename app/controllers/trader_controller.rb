@@ -21,13 +21,13 @@ class TraderController < ApplicationController
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
 			region: 'us-east-2'})
-		
+
 		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
 			name: @trader.name, # required
 			tags: [
 				{
-					key: trader_name, # required
+					key: 'trader_name', # required
 					value: @trader.name, # required
 				},
 			]
