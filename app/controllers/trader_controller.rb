@@ -1,6 +1,6 @@
 class TraderController < ApplicationController
 	protect_from_forgery :except => :create
-	
+
 	def index 
 		@traders = Trader.all
 	end
@@ -18,6 +18,10 @@ class TraderController < ApplicationController
 
 		puts @trader.name
 
+		Aws.config.update({
+			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
+			region: 'us-east-2'})
+		
 		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
 			name: @trader.name, # required
