@@ -5,12 +5,11 @@ class PlatformApplicationController < ApplicationController
         platform = params[:platform]
         platform_name = params[:platform_name]
 
-       	apns_private_key_path = params[:apns_private_key_path]
-        apns_private_key_password = params[:apns_private_key_password]
+        #apns_private_key_password = params[:apns_private_key_password]
 
         Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: 'us-east-2'
+			region: 'us-east-1'
 		})
 		sns_client ||= Aws::SNS::Client.new
 
