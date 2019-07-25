@@ -26,10 +26,10 @@ class TraderController < ApplicationController
 		})
 
 		@trader.trader_arn = resp.topic_arn
-		if @trader.save
-			render :json => {:trader_id => @trader.id}
-		else
-			render :json => {}
-		end 
+		# if @trader.save
+		# 	render :json => {:trader_id => @trader.id}
+		# else
+		# 	render :json => {}
+		# end 
 	end 
 end
