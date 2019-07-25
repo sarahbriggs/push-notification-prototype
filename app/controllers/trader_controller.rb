@@ -1,4 +1,6 @@
 class TraderController < ApplicationController
+	protect_from_forgery :except => :create
+	
 	def index 
 		@traders = Trader.all
 	end
@@ -13,6 +15,8 @@ class TraderController < ApplicationController
 	def create
 		@trader = Trader.new 
 		@trader.name = params[:name]
+
+		puts @trader.name
 
 		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
