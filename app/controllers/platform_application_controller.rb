@@ -15,13 +15,13 @@ class PlatformApplicationController < ApplicationController
 		sns_client ||= Aws::SNS::Client.new
 
 		if ['APNS', 'APNS_SANDBOX'].include?(platform)
-			file = File.read(apns_private_key_path)
-          	p12 = OpenSSL::PKCS12.new(file, apns_private_key_password)
-          	cert = p12.certificate
-          	
+			# file = File.read(apns_private_key_path)
+   #        	p12 = OpenSSL::PKCS12.new(file, apns_private_key_password)
+   #        	cert = p12.certificate
+
           	attributes = {
-            'PlatformCredential': p12.key.to_s,
-            'PlatformPrincipal': cert.to_s 
+            'PlatformCredential': ENV['APNS_PRIVATE_KEY'],
+            'PlatformPrincipal': ENV['APNS_CERT']
         	}
         end
 
