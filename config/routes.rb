@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :trader
 
   post 'platform/new' => 'platform_application#new'
+  resources :platform_application
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
