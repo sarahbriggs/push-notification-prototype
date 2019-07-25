@@ -1,0 +1,2 @@
+module PlatformApplicationHelper
+end

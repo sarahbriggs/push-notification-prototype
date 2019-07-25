@@ -23720,3 +23720,24 @@ app/controllers/subscription_controller.rb:42:in `create'
   ↳ db/seeds.rb:33
   [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
   ↳ db/seeds.rb:33
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreatePlatformApplications (20190725180958)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190725180958_create_platform_applications.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "platform_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "platform_name" varchar, "platform_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190725180958_create_platform_applications.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190725180958"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23

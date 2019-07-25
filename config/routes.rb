@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/welcome' => 'welcome#index'
   root 'welcome#index'
-  
+
   get 'subscription/index'
   post 'subscription/create'
   get 'subscribe' => 'subscription#new'
@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   post 'trader/new' => 'trader#create'
   resources :trader
 
+  post 'platform/new' => 'platform_application#new'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
