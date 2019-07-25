@@ -7,7 +7,7 @@ class SubscriptionController < ApplicationController
 	end
 
 	def new
-	3	@traders = Trader.all
+		@traders = Trader.all
 		@user = session[:user_id]
 	end
 

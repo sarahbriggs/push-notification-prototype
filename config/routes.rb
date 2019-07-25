@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/welcome' => 'welcome#index'
   root 'welcome#index'
-
+  
   get 'subscription/index'
   post 'subscription/create'
   get 'subscribe' => 'subscription#new'
