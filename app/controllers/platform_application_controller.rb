@@ -13,7 +13,8 @@ class PlatformApplicationController < ApplicationController
 		})
 
 		render :json => {
-			:attributes => resp.data
+			:data => resp.data,
+			:attributes => resp.attributes
 		}
   #       platform = params[:platform]
   #       platform_name = params[:platform_name]
