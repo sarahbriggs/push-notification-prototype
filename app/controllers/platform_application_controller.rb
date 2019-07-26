@@ -13,8 +13,9 @@ class PlatformApplicationController < ApplicationController
 		})
 
 		render :json => {
-			:attributes => 
-			resp.attributes['arn:aws:sns:us-east-1:877941893971:app/APNS_SANDBOX/testPlatformApplication']
+			:attributes => resp.data,
+			:string => resp["String"],
+			:resp => resp
 		}
   #       platform = params[:platform]
   #       platform_name = params[:platform_name]
