@@ -18,7 +18,8 @@ class DeviceController < ApplicationController
 
 		if (Device.where(["device_token = ?", token])).exists?
 			@device = Device.where(["device_token = ?", token])
-
+		end 
+		
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
 			region: ENV['AWSRegion']
