@@ -18,8 +18,8 @@ class DeviceController < ApplicationController
 		platform = params[:platform]
 		token = params[:token]
 
-		if (PlatformApplication.where(["platform_name = ?", platform)).exists?
-			@platform_application = PlatformApplication.where(["platform_name = ?", platform)
+		if (PlatformApplication.where(["platform_name = ?", platform])).exists?
+			@platform_application = PlatformApplication.where(["platform_name = ?", platform])
 		end 
 
 		if (Device.where(["device_token = ?", token])).exists?
