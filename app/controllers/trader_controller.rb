@@ -20,7 +20,7 @@ class TraderController < ApplicationController
 
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: 'us-east-2'})
+			region: 'us-east-1'})
 
 		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
