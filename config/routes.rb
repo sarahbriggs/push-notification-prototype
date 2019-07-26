@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post 'trader/new' => 'trader#create'
   resources :trader
 
+  #get 'platform_application/new' => 'platform_application#new'
   post 'platform/new' => 'platform_application#new'
   resources :platform_application
   
