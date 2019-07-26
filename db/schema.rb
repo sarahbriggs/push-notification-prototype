@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_180958) do
+ActiveRecord::Schema.define(version: 2019_07_26_152035) do
+
+  create_table "devices", force: :cascade do |t|
+    t.string "device_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "platform_applications", force: :cascade do |t|
     t.string "platform_name"

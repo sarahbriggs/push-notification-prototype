@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   #get 'platform_application/new' => 'platform_application#new'
   post 'platform/new' => 'platform_application#new'
   resources :platform_application
+
+  post 'device' => 'device#create'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
