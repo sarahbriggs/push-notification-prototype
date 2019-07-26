@@ -14,7 +14,6 @@ class PlatformApplicationController < ApplicationController
 
 		render :json => {
 			:attributes => resp.data,
-			:string => resp["String"],
 			:resp => resp
 		}
   #       platform = params[:platform]
