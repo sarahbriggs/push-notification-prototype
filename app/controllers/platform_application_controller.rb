@@ -13,6 +13,7 @@ class PlatformApplicationController < ApplicationController
 		})
 
 		render :json => {
+			:resp => resp,
 			:data => resp.data,
 			:attributes => resp.attributes
 		}
