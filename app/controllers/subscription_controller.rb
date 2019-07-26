@@ -39,7 +39,10 @@ class SubscriptionController < ApplicationController
 	def destroy 
 		@user = session[:user_id]
 		@trader = params[:trader]
-		sns_client ||= Aws::SNS::Client.new
+		Aws.config.update({
+          credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
+          region: 'us-east-1'})
+		sns_client ||= Aws::SNS::Client.new()
 		@sub = Subscription.find_by(user_id: @user, trader_id: @trader)
 		@sub_arn = @sub.subscription_arn
 
