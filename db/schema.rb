@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_152035) do
+ActiveRecord::Schema.define(version: 2019_07_26_173601) do
 
   create_table "devices", force: :cascade do |t|
     t.string "device_token"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_07_26_152035) do
     t.string "trader_arn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_devices", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_user_devices_on_device_id"
+    t.index ["user_id"], name: "index_user_devices_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

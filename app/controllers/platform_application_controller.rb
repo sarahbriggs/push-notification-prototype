@@ -7,7 +7,7 @@ class PlatformApplicationController < ApplicationController
 			region: 'us-east-1'
 		})
 		sns_client ||= Aws::SNS::Client.new
-		
+
 		# resp = sns_client.get_platform_application_attributes({
 		# 	platform_application_arn: 'arn:aws:sns:us-east-1:877941893971:app/APNS_SANDBOX/testPlatformApplication'
 		# })
@@ -37,9 +37,9 @@ class PlatformApplicationController < ApplicationController
   #           attributes: attributes,
   #       })
   #      platform_arn = resp.platform_application_arn
-
-  		platform_arn = 'arn:aws:sns:us-east-1:877941893971:app/APNS_SANDBOX/testPlatformApplication'
   		
+  		platform_arn = 'arn:aws:sns:us-east-1:877941893971:app/APNS_SANDBOX/testPlatformApplication'
+
         @platform_application = PlatformApplication.new 
         @platform_application.platform_name = platform_name
         @platform_application.platform_arn = platform_arn
