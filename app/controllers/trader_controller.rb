@@ -13,9 +13,7 @@ class TraderController < ApplicationController
 	end
 
 	def create
-		@trader = Trader.new 
-		@trader.name = params[:name]
-		puts @trader.name
+		@trader = Trader.new(trader_params)
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
 			region: ENV['AWSRegion']})
@@ -48,5 +46,10 @@ class TraderController < ApplicationController
 			render :json => {:deleted => false}
 		end
 	end
+
+	private
+  	def trader_params
+    	params.permit(:name)
+  	end
 
 end
