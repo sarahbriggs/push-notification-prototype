@@ -18,8 +18,8 @@ class SubscriptionController < ApplicationController
 		@subscription.trader_id = @trader.id
 		Aws.config.update({
           credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-          region: 'us-east-1'})
-		sns_client ||= Aws::SNS::Client.new()
+          region: ENV['AWSRegion']})
+		sns_client ||= Aws::SNS::Client.new
 
 		resp = sns_client.subscribe({
 		  topic_arn: @trader.trader_arn,
@@ -41,8 +41,8 @@ class SubscriptionController < ApplicationController
 		@trader = params[:trader]
 		Aws.config.update({
           credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-          region: 'us-east-1'})
-		sns_client ||= Aws::SNS::Client.new()
+          region: ENV['AWSRegion']})
+		sns_client ||= Aws::SNS::Client.new
 		@sub = Subscription.find_by(user_id: @user, trader_id: @trader)
 		@sub_arn = @sub.subscription_arn
 

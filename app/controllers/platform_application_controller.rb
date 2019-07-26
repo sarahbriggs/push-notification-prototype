@@ -4,7 +4,7 @@ class PlatformApplicationController < ApplicationController
 	def new
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: 'us-east-1'
+			region: ENV['AWSRegion']
 		})
 		sns_client ||= Aws::SNS::Client.new
 		

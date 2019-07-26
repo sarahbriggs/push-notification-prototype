@@ -18,8 +18,8 @@ class TraderController < ApplicationController
 		puts @trader.name
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: 'us-east-1'})
-		sns_client ||= Aws::SNS::Client.new()
+			region: ENV['AWSRegion']})
+		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.create_topic({
 			name: @trader.name, # required
 		})
@@ -37,12 +37,16 @@ class TraderController < ApplicationController
 		@trader = Trader.find(params[:id])
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: 'us-east-1'})
-		sns_client ||= Aws::SNS::Client.new()
+			region: ENV['AWSRegion']})
+		sns_client ||= Aws::SNS::Client.new
 		resp = sns_client.delete_topic({
 			topic_arn: @trader.trader_arn
 		})
-		Trader.destroy(@trader.id)
+		if Trader.destroy(@trader.id)
+			render :json => {:deleted => true}
+		else
+			render :json => {:deleted => false}
+		end
 	end
 
 end
