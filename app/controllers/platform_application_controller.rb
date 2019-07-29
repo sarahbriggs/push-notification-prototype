@@ -11,7 +11,7 @@ class PlatformApplicationController < ApplicationController
         platform = params[:platform]
         platform_name = params[:platform_name]
 
-  		platform_arn = 'arn:aws:sns:us-east-1:877941893971:app/APNS_SANDBOX/testPlatformApplication'
+  		platform_arn = ENV['AWSPlatformARN']
 
         @platform_application = PlatformApplication.new 
         @platform_application.platform_name = platform_name
