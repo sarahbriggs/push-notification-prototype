@@ -20,7 +20,11 @@ class UserDeviceController < ApplicationController
 			region: ENV['AWSRegion']
 		})
 		sns_client ||= Aws::SNS::Client.new
-		
+
+		puts "ARN ARN ARN ARN ARN ARN ARN"
+		puts platform_application.platform_arn 
+		puts "ARN ARN ARN ARN ARN ARN ARN"	
+
 		resp = sns_client.create_platform_endpoint({
 		  platform_application_arn: @platform_application.platform_arn,
 		  token: @device.device_token
