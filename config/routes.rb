@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   post 'platform/new' => 'platform_application#new'
   resources :platform_application
 
-  post 'device' => 'device#create'
-  post 'device/newEndpoint' => 'device#new_endpoint'
+  post 'device' => 'user_device#create'
+  #post 'device/newEndpoint' => 'device#new_endpoint'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
