@@ -18,19 +18,19 @@ class UserDeviceController < ApplicationController
 		puts "---------------- START ----------------"
 		puts @platform_application.exists?
 		puts "---------------- END ----------------"
-		
+
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
 			region: ENV['AWSRegion']
 		})
 		sns_client ||= Aws::SNS::Client.new
-		
+
 		puts "---------------- START ----------------"
-		puts @platform_application.platform_name 
+		puts @platform_application.first.platform_arn
 		puts "---------------- END ----------------"
 
 		resp = sns_client.create_platform_endpoint({
-		  platform_application_arn: @platform_application.platform_arn,
+		  platform_application_arn: @platform_application.first.platform_arn,
 		  token: @device.device_token
 		})
 
