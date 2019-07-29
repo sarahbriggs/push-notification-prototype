@@ -29,5 +29,8 @@ Trader.create(name: 'Vonetta',
 Trader.create(name: 'Fauzia', 
 	trader_arn:'arn:aws:sns:us-east-2:877941893971:fauzia_feed')
 
+PlatformApplication.create(platform_name: 'APNS_SANDBOX', 
+	platform_arn: 'arn:aws:sns:us-east-1:877941893971:app/APNS_SANDBOX/testPlatformApplication')
+
 User.create(name: 'Sarah', email: 'sarah.briggs@tastytrade.com')
 User.create(name: 'Carolyn', email: 'carolyn.blumberg@tastytrade.com')

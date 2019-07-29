@@ -20,7 +20,7 @@ class DeviceController < ApplicationController
 
 		if (PlatformApplication.where(["platform_name = ?", platform])).exists?
 			@platform_application = PlatformApplication.where(["platform_name = ?", platform])
-		end 
+		end
 
 		if (Device.where(["device_token = ?", token])).exists?
 			@device = Device.where(["device_token = ?", token])
@@ -36,7 +36,7 @@ class DeviceController < ApplicationController
 		  platform_application_arn: @platform_application.platform_arn,
 		  token: @device.token
 		})
-
+			
 		@device.endpoint_arn = resp.endpoint_arn
 		
         if @device.save
