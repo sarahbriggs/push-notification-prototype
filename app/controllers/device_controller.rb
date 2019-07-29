@@ -23,6 +23,10 @@ class DeviceController < ApplicationController
 			puts "--------------------------------------"
 			puts "EXISTS"
 			puts "--------------------------------------"
+		else 
+			puts "--------------------------------------"
+			puts "DID NOT FIND PLATFORM APPLICATION"
+			puts "--------------------------------------"
 		end
 
 		if (Device.where(["device_token = ?", token])).exists?
