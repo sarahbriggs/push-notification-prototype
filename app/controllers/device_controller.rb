@@ -2,9 +2,13 @@ class DeviceController < ApplicationController
 	protect_from_forgery :except => :create
 
 	def create
-		@device = Device.new
-		@device.token = params[:token]
-
+		if (Device.where(["device_token = ?", token])).exists?
+			@device = Device.where(["device_token = ?", token])
+		else  
+			@device = Device.new
+			@device.token = params[:token]
+		end 
+		
 		if @device.save 
 			render :json => {
 				:token => @device.token 
@@ -27,7 +31,7 @@ class DeviceController < ApplicationController
 			puts "--------------------------------------"
 			puts "DID NOT FIND PLATFORM APPLICATION"
 			puts "--------------------------------------"
-		end
+		ends
 
 		if (Device.where(["device_token = ?", token])).exists?
 			@device = Device.where(["device_token = ?", token])
