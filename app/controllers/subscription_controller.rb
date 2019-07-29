@@ -10,7 +10,7 @@ class SubscriptionController < ApplicationController
 		@traders = Trader.all
 		@user = session[:user_id]
 	end
-
+	
 	def create
       	@user = User.find(params[:user_id])
 		@trader = Trader.find(params[:trader_id])
