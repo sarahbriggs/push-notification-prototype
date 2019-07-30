@@ -27,7 +27,7 @@ class SubscriptionController < ApplicationController
 		
 		for dev in devices_list.to_a do 
 			puts "---- endoint ----"
-			puts dev.endpoint_arn
+			puts dev.id 
 			puts "-----------------"
 			resp = sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
