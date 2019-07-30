@@ -26,7 +26,11 @@ class SubscriptionController < ApplicationController
 		# subscribe all user devices 
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 
+			puts "------- TOKEN -----------"
+			puts dev.device_token
 			
+			puts " "
+
 			puts "------- ENDPOINT -----------"
 			puts dev.device_endpoint
 
@@ -45,7 +49,7 @@ class SubscriptionController < ApplicationController
       		end
 
       		# create new subscription for next device
-      		@subscription = @user.subscription.create()
+      		@subscription = @user.subscriptions.create()
       		@subscription.trader_id = @trader.id
       	end 
 	end
