@@ -32,7 +32,7 @@ class SubscriptionController < ApplicationController
 			resp = sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
 				protocol: 'application',
-				endpoint: dev.endpoint_arn,
+				endpoint: dev.device_endpoint,
 				return_subscription_arn: false
 			})
 

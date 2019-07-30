@@ -25,9 +25,6 @@ class UserDeviceController < ApplicationController
 		  platform_application_arn: @platform_application.first.platform_arn,
 		  token: @device.device_token
 		})
-
-		puts "ARN - ARN - ARN - ARN - ARN - ARN - ARN - ARN"
-		puts resp.endpoint_arn 
 		
 		@device.device_endpoint = resp.endpoint_arn
 
