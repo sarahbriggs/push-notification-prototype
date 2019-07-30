@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'subscription/index'
-  post 'subscription/create'
+  post 'subscription/create' => 'subscription#create'
   get 'subscribe' => 'subscription#new'
   delete '/subscription' => 'subscription#destroy'
   get 'my_subscriptions' => 'subscription#show'
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   #get 'platform_application/new' => 'platform_application#new'
   post 'platform/new' => 'platform_application#new'
   resources :platform_application
-  
+
   post 'device' => 'user_device#create'
   #post 'device/newEndpoint' => 'device#new_endpoint'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
