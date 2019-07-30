@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_173601) do
   create_table "user_devices", force: :cascade do |t|
     t.integer "user_id"
     t.string "device_token"
-    t.string "endpoint_arn"
+    t.string "device_endpoint"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_devices_on_user_id"
