@@ -18,32 +18,28 @@ class SubscriptionController < ApplicationController
 		@subscription = @user.subscriptions.create()
 		@subscription.trader_id = @trader.id
 
-		puts "~~~~ START ~~~~"
-		@devices_list = @user.user_devices
-		for dev in @devices_list.to_a do 
-			puts dev.device_token
-			puts dev.endpoint_arn
-		end  
-		puts "~~~~ END ~~~~"
-
 		Aws.config.update({
           credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
           region: ENV['AWSRegion']})
 		sns_client ||= Aws::SNS::Client.new
 
-		resp = sns_client.subscribe({
-		  topic_arn: @trader.trader_arn,
-		  protocol: 'email',
-		  endpoint: @user.email,
-		  return_subscription_arn: false
-		})
-		@subscription.subscription_arn = resp.subscription_arn
-
-		if @subscription.save
-          render :json => {:subscription_arn => @subscription.subscription_arn}
-      	else
-          render :json => {}
-      	end
+		devices_list = @user.user_devices
+		
+		for dev in devices_list.to_a do 
+			resp = sns_client.subscribe({
+				topic_arn: @trader.trader_arn,
+				protocol: 'application',
+				endpoint: dev.device_endpoint,
+				return_subscription_arn: false
+			})
+			
+			@subscription.subscription_arn = resp.subscription_arn
+			if @subscription.save
+				render :json => {:subscription_arn => @subscription.subscription_arn}
+      		else
+          		render :json => {}
+      		end
+      	end 
 	end
 
 	def destroy 
