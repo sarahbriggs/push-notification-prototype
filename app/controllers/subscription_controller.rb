@@ -29,10 +29,10 @@ class SubscriptionController < ApplicationController
 			resp = sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
 				protocol: 'application',
-				endpoint: dev.device_endpoint,
+				endpoint: dev.endpoint_arn,
 				return_subscription_arn: false
 			})
-			
+
 			@subscription.subscription_arn = resp.subscription_arn
 			if @subscription.save
 				render :json => {:subscription_arn => @subscription.subscription_arn}

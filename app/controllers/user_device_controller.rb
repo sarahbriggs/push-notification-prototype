@@ -26,7 +26,7 @@ class UserDeviceController < ApplicationController
 		  token: @device.device_token
 		})
 
-		@device.device_endpoint = resp.endpoint_arn
+		@device.endpoint_arn = resp.endpoint_arn
 
 		# find all subscriptions with user_id = @user.id
 			# subscribe endpoint 
@@ -34,7 +34,8 @@ class UserDeviceController < ApplicationController
 		if @device.save
 			render :json => {
 				:device_token => @device.device_token,
-				:endpoint_arn => @device.device_endpoint
+				:endpoint_arn => @device.endpoint_arn
+
 			}
 		else
 			render :json => {}

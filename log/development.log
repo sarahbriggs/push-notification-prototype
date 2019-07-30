@@ -25297,3 +25297,131 @@ Migrating to CreateUserDevices (20190726173601)
   ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "platform_applications"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "platform_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "platform_name" varchar, "platform_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "subscriptions"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "subscriptions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subscription_arn" varchar, "user_id" integer, "trader_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_trader_id" ON "subscriptions" ("trader_id")[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_subscriptions_on_user_and_trader" ON "subscriptions" ("user_id", "trader_id")[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_user_id" ON "subscriptions" ("user_id")[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "traders"[0m
+  ↳ db/schema.rb:33
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "traders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "trader_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_devices"[0m
+  ↳ db/schema.rb:40
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "user_devices" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "device_token" varchar, "endpoint_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:40
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_user_devices_on_user_id" ON "user_devices" ("user_id")[0m
+  ↳ db/schema.rb:40
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "platform_applications"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "platform_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "platform_name" varchar, "platform_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "subscriptions"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "subscriptions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subscription_arn" varchar, "user_id" integer, "trader_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_trader_id" ON "subscriptions" ("trader_id")[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_subscriptions_on_user_and_trader" ON "subscriptions" ("user_id", "trader_id")[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_subscriptions_on_user_id" ON "subscriptions" ("user_id")[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "traders"[0m
+  ↳ db/schema.rb:33
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "traders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "trader_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_devices"[0m
+  ↳ db/schema.rb:40
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "user_devices" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "device_token" varchar, "endpoint_arn" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:40
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_user_devices_on_user_id" ON "user_devices" ("user_id")[0m
+  ↳ db/schema.rb:40
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "development"], ["updated_at", "2019-07-30 15:24:45.306047"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-07-30 15:24:45.309378"], ["key", "environment"]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sbriggs/.rvm/gems/ruby-2.5.1/bin/rake:23
