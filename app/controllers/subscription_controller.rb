@@ -34,7 +34,7 @@ class SubscriptionController < ApplicationController
 				protocol: 'application',
 				endpoint: dev.endpoint_arn,
 				return_subscription_arn: false
-			})en
+			})
 
 			@subscription.subscription_arn = resp.subscription_arn
 			if @subscription.save
