@@ -26,6 +26,10 @@ class SubscriptionController < ApplicationController
 		# subscribe all user devices 
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 
+			
+			puts "------- ENDPOINT -----------"
+			puts dev.device_endpoint
+
 			resp = sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
 				protocol: 'application',
