@@ -23,19 +23,9 @@ class SubscriptionController < ApplicationController
           region: ENV['AWSRegion']})
 		sns_client ||= Aws::SNS::Client.new
 
+		# subscribe all user devices 
 		devices_list = @user.user_devices
-		
 		for dev in devices_list.to_a do 
-			puts "---- trader_arn ----"
-			puts @trader.trader_arn 
-			puts "--------------------" 
-
-			puts " "
-
-			puts "---- endpoint ----"
-			puts dev.device_endpoint 
-			puts "-----------------"
-
 			resp = sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
 				protocol: 'application',
@@ -49,6 +39,10 @@ class SubscriptionController < ApplicationController
       		else
           		render :json => {}
       		end
+
+      		# create new subscription for next device
+      		@subscription = @user.subscription.create()
+      		@subscription.trader_id = @trader.id
       	end 
 	end
 
