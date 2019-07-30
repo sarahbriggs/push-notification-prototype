@@ -10,12 +10,22 @@ class SubscriptionController < ApplicationController
 		@traders = Trader.all
 		@user = session[:user_id]
 	end
-	
+
 	def create
       	@user = User.find(params[:user_id])
 		@trader = Trader.find(params[:trader_id])
+
 		@subscription = @user.subscriptions.create()
 		@subscription.trader_id = @trader.id
+
+		puts "~~~~ START ~~~~"
+		@devices_list = @user.user_devices
+		for dev in @devices_list.to_a do 
+			puts dev.device_token
+			puts dev.endpoint_arn
+		end  
+		puts "~~~~ END ~~~~"
+
 		Aws.config.update({
           credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
           region: ENV['AWSRegion']})

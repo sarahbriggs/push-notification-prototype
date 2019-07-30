@@ -15,19 +15,11 @@ class UserDeviceController < ApplicationController
 
 		@platform_application = PlatformApplication.where("platform_name = ?", platform)
 		
-		puts "---------------- START ----------------"
-		puts @platform_application.exists?
-		puts "---------------- END ----------------"
-
 		Aws.config.update({
 			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
 			region: ENV['AWSRegion']
 		})
 		sns_client ||= Aws::SNS::Client.new
-
-		puts "---------------- START ----------------"
-		puts @platform_application.first.platform_arn
-		puts "---------------- END ----------------"
 
 		resp = sns_client.create_platform_endpoint({
 		  platform_application_arn: @platform_application.first.platform_arn,
@@ -35,6 +27,10 @@ class UserDeviceController < ApplicationController
 		})
 
 		@device.endpoint_arn = resp.endpoint_arn
+		
+		# find all subscriptions with user_id = @user.id
+			# subscribe endpoint 
+
 		if @device.save
 			render :json => {
 				:device_token => @device.device_token,
