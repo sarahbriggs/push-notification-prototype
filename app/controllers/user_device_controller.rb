@@ -5,7 +5,7 @@ class UserDeviceController < ApplicationController
 		token = params[:token]
 		user_id = params[:user_id]
 		platform = params[:platform]
-		
+
 		@device = UserDevice.where("device_token = ? AND user_id = ?", token, user_id)
 		if !(@device.exists?)
 			@user = User.find(user_id)
@@ -26,11 +26,14 @@ class UserDeviceController < ApplicationController
 		  token: @device.device_token
 		})
 
+		puts "ARN - ARN - ARN - ARN - ARN - ARN - ARN - ARN"
+		puts resp.endpoint_arn 
+		
 		@device.device_endpoint = resp.endpoint_arn
 
 		# find all subscriptions with user_id = @user.id
 			# subscribe endpoint 
-		
+
 		if @device.save
 			render :json => {
 				:device_token => @device.device_token,
