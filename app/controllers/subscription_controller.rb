@@ -23,7 +23,7 @@ class SubscriptionController < ApplicationController
           region: ENV['AWSRegion']})
 		sns_client ||= Aws::SNS::Client.new
 
-		devices_list = @user.user_devices
+		devices_list = @user.first.user_devices
 		
 		for dev in devices_list.to_a do 
 			puts "---- endpoint ----"
