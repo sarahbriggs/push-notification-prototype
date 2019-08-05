@@ -1,5 +1,6 @@
 class TraderController < ApplicationController
 	protect_from_forgery :except => [:destroy, :create]
+	@@sns_client ||= Aws::SNS::Client.new
 
 	def index 
 		@traders = Trader.all
@@ -14,11 +15,8 @@ class TraderController < ApplicationController
 
 	def create
 		@trader = Trader.new(trader_params)
-		Aws.config.update({
-			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: ENV['AWSRegion']})
-		sns_client ||= Aws::SNS::Client.new
-		resp = sns_client.create_topic({
+		
+		resp = @@sns_client.create_topic({
 			name: @trader.name, # required
 		})
 
@@ -33,11 +31,7 @@ class TraderController < ApplicationController
 
 	def destroy
 		@trader = Trader.find(params[:id])
-		Aws.config.update({
-			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: ENV['AWSRegion']})
-		sns_client ||= Aws::SNS::Client.new
-		resp = sns_client.delete_topic({
+		resp = @@sns_client.delete_topic({
 			topic_arn: @trader.trader_arn
 		})
 		if Trader.destroy(@trader.id)

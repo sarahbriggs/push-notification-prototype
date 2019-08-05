@@ -1,7 +1,10 @@
 class SubscriptionController < ApplicationController
 	# before_action :require_user, only: [:new, :show]
 	protect_from_forgery :except => :create
+
+	@@sns_client ||= Aws::SNS::Client.new
 	
+
 	def index
 		@subscriptions = User.find(params[:id]).subscriptions
 	end
@@ -24,12 +27,11 @@ class SubscriptionController < ApplicationController
 		Aws.config.update({
 	        credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
 	        region: ENV['AWSRegion']})
-		sns_client ||= Aws::SNS::Client.new
 
 		# subscribe all user devices 
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 
-			resp = sns_client.subscribe({
+			resp = @@sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
 				protocol: 'application',
 				endpoint: dev.device_endpoint,
@@ -52,20 +54,16 @@ class SubscriptionController < ApplicationController
 	def destroy 
 		@user = session[:user_id]
 		@trader = params[:trader]
-		Aws.config.update({
-          credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-          region: ENV['AWSRegion']})
-		sns_client ||= Aws::SNS::Client.new
+
 		@sub = Subscription.find_by(user_id: @user, trader_id: @trader)
 		@sub_arn = @sub.subscription_arn
 
 		if Subscription.destroy(@sub.id)
 			if @sub_arn != nil and @sub_arn != "pending confirmation"
 				# unsubscribe here ... need SubscriptionArn
-				sns_client ||= Aws::SNS::Client.new
-				resp = sns_client.list_subscriptions_by_topic({
+				resp = @@sns_client.list_subscriptions_by_topic({
 					topic_arn: "arn:aws:sns:us-east-2:877941893971:snsTest"})
-				sns_client.unsubscribe({
+				@@sns_client.unsubscribe({
 					subscription_arn: @sub_arn
 				})
 			end 

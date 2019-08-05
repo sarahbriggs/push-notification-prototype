@@ -11,7 +11,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-
+  
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
@@ -28,8 +28,8 @@ Rails.application.configure do
   end
 
   Aws.config.update({
-    credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-    region: 'us-east-2'})
+      credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
+      region: ENV['AWSRegion']})
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local

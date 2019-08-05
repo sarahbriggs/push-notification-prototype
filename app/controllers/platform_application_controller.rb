@@ -1,13 +1,7 @@
 class PlatformApplicationController < ApplicationController
 	protect_from_forgery :except => :create
-
+	
 	def new
-		Aws.config.update({
-			credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-			region: ENV['AWSRegion']
-		})
-		sns_client ||= Aws::SNS::Client.new
-
         platform = params[:platform]
         platform_name = params[:platform_name]
 
