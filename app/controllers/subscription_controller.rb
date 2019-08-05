@@ -12,9 +12,15 @@ class SubscriptionController < ApplicationController
 	end
 
 	def create
-      	@user = User.find(params[:user_id])
-		@trader = Trader.find(params[:trader_id])
+		user_id = params[:user_id]
+		trader_id = params[:trader_id]
+
+      	@user = User.find(user_id)
+		@trader = Trader.find(trader_id)
 		
+		@subscription = Subscription.where(:trader_ider => 
+			trader_id, :user_id => user_id).first_or_create
+
 		if !Subscription.where("user_id = ? AND trader_id = ?", user_id, trader_id).exists?
 			@subscription = @user.subscriptions.create()
 			@subscription.trader_id = @trader.id
