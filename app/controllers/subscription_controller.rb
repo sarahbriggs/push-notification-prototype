@@ -23,11 +23,7 @@ class SubscriptionController < ApplicationController
 		
 		@subscription = Subscription.where(:trader_id => 
 			trader_id, :user_id => user_id).first_or_create
-
-		Aws.config.update({
-	        credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-	        region: ENV['AWSRegion']})
-
+		
 		# subscribe all user devices 
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 

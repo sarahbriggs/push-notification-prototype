@@ -30,7 +30,7 @@ Rails.application.configure do
   Aws.config.update({
       credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
       region: ENV['AWSRegion']})
-
+  
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
