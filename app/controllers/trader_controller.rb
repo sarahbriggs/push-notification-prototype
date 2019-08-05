@@ -48,6 +48,7 @@ class TraderController < ApplicationController
 			topic_arn: @trader.trader_arn,
 			message: @message
 		})
+		render :json => {:message => @message}
 	end
 
 	private
