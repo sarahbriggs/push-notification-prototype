@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 2019_07_26_173601) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "subscription_arn"
-    t.integer "user_id"
+    t.integer "user_device_id"
     t.integer "trader_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trader_id"], name: "index_subscriptions_on_trader_id"
-    t.index ["user_id", "trader_id"], name: "index_subscriptions_on_user_and_trader", unique: true
-    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+    t.index ["user_device_id", "trader_id"], name: "index_subscriptions_on_user_and_trader", unique: true
+    t.index ["user_device_id"], name: "index_subscriptions_on_user_device_id"
   end
 
   create_table "traders", force: :cascade do |t|

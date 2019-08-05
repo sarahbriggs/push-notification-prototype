@@ -21,12 +21,12 @@ class SubscriptionController < ApplicationController
       	@user = User.find(user_id)
 		@trader = Trader.find(trader_id)
 		
-		@subscription = Subscription.where(:trader_id => 
-			trader_id, :user_id => user_id).first_or_create
-		
-		# subscribe all user devices 
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 
+			@subscription = Subscription.where(:trader_id => 
+			trader_id, :user_device_id => dev.id).first_or_create
+
+			# subscribe all user devices 
 			resp = @@sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
 				protocol: 'application',
@@ -40,10 +40,6 @@ class SubscriptionController < ApplicationController
 		    else
 		        render :json => {}
 		    end
-
-		    # create new subscription for next device
-		    @subscription = @user.subscriptions.create()
-		    @subscription.trader_id = @trader.id
 		end 
 	end
 
@@ -51,22 +47,23 @@ class SubscriptionController < ApplicationController
 		@user = session[:user_id]
 		@trader = params[:trader]
 
-		@sub = Subscription.find_by(user_id: @user, trader_id: @trader)
-		@sub_arn = @sub.subscription_arn
+		devices_list = @user.user_devices
+		for dev in devices_list.to_a do 
+			@sub = Subscription.find_by(user_device_id: dev.id, trader_id: @trader)
+			@sub_arn = @sub.subscription_arn
 
-		if Subscription.destroy(@sub.id)
-			if @sub_arn != nil and @sub_arn != "pending confirmation"
-				# unsubscribe here ... need SubscriptionArn
-				resp = @@sns_client.list_subscriptions_by_topic({
-					topic_arn: "arn:aws:sns:us-east-2:877941893971:snsTest"})
-				@@sns_client.unsubscribe({
-					subscription_arn: @sub_arn
-				})
-			end 
-			redirect_to action: 'index', alert: "SUCCESS"
-		else
-          	redirect_to action: 'new', alert: "ERROR"
-      end
+			if Subscription.destroy(@sub.id)
+				if @sub_arn != nil and @sub_arn != "pending confirmation"
+					# unsubscribe here ... need SubscriptionArn
+					@@sns_client.unsubscribe({
+						subscription_arn: @sub_arn
+					})
+				end 
+				redirect_to action: 'index', alert: "SUCCESS"
+			else
+	          	redirect_to action: 'new', alert: "ERROR"
+	        end
+		end 
 	end
 
 	def show
