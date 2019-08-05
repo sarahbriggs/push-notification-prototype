@@ -15,8 +15,8 @@ class SubscriptionController < ApplicationController
       	@user = User.find(params[:user_id])
 		@trader = Trader.find(params[:trader_id])
 		
-		@subscription = Subscription.where("user_id = ? AND trader_id = ?", user_id, trader_id)
-
+		@subscription = Subscription.where("user_id = ? AND trader_id = ?", user_id, trader_id).first 
+		
 		subscription_exists = @subscription.exists?
 
 		#if !subscription_exists
