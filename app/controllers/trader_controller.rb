@@ -1,5 +1,5 @@
 class TraderController < ApplicationController
-	protect_from_forgery :except => [:destroy, :create]
+	protect_from_forgery :except => [:destroy, :create, :publish_message]
 	@@sns_client ||= Aws::SNS::Client.new
 
 	def index 
