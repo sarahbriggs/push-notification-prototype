@@ -45,7 +45,7 @@ class TraderController < ApplicationController
 		@trader = Trader.find(params[:id])
 		@message = params[:message]
 		resp = @@sns_client.publish({
-			topic_arn: @trader.trader_arn
+			topic_arn: @trader.trader_arn,
 			message: @message
 		})
 	end
@@ -54,5 +54,4 @@ class TraderController < ApplicationController
   	def trader_params
     	params.permit(:name)
   	end
-
 end
