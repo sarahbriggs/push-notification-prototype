@@ -20,46 +20,33 @@ class SubscriptionController < ApplicationController
 		
 		@subscription = Subscription.where(:trader_id => 
 			trader_id, :user_id => user_id).first_or_create
-		
-		if !Subscription.where("user_id = ? AND trader_id = ?", user_id, trader_id).exists?
-			@subscription = @user.subscriptions.create()
-			@subscription.trader_id = @trader.id
 
-			Aws.config.update({
-	          credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
-	          region: ENV['AWSRegion']})
-			sns_client ||= Aws::SNS::Client.new
+		Aws.config.update({
+	        credentials: Aws::Credentials.new(ENV['AWSAccessKeyId'], ENV['AWSSecretKey']),
+	        region: ENV['AWSRegion']})
+		sns_client ||= Aws::SNS::Client.new
 
-			# subscribe all user devices 
-			devices_list = @user.user_devices
-			for dev in devices_list.to_a do 
-				puts "------- TOKEN -----------"
-				puts dev.device_token
-				
-				puts " "
+		# subscribe all user devices 
+		devices_list = @user.user_devices
+		for dev in devices_list.to_a do 
+			resp = sns_client.subscribe({
+				topic_arn: @trader.trader_arn,
+				protocol: 'application',
+				endpoint: dev.device_endpoint,
+				return_subscription_arn: false
+			})
 
-				puts "------- ENDPOINT -----------"
-				puts dev.device_endpoint
+			@subscription.subscription_arn = resp.subscription_arn
+			if @subscription.save
+				render :json => {:subscription_arn => @subscription.subscription_arn}
+		    else
+		        render :json => {}
+		    end
 
-				resp = sns_client.subscribe({
-					topic_arn: @trader.trader_arn,
-					protocol: 'application',
-					endpoint: dev.device_endpoint,
-					return_subscription_arn: false
-				})
-
-				@subscription.subscription_arn = resp.subscription_arn
-				if @subscription.save
-					render :json => {:subscription_arn => @subscription.subscription_arn}
-	      		else
-	          		render :json => {}
-	      		end
-
-	      		# create new subscription for next device
-	      		@subscription = @user.subscriptions.create()
-	      		@subscription.trader_id = @trader.id
-	    	end 
-      	end 
+		    # create new subscription for next device
+		    @subscription = @user.subscriptions.create()
+		    @subscription.trader_id = @trader.id
+		end 
 	end
 
 	def destroy 
