@@ -15,11 +15,7 @@ class SubscriptionController < ApplicationController
       	@user = User.find(params[:user_id])
 		@trader = Trader.find(params[:trader_id])
 		
-		@subscription = Subscription.where("user_id = ? AND trader_id = ?", user_id, trader_id).first 
-		
-		subscription_exists = @subscription.exists?
-
-		#if !subscription_exists
+		if !Subscription.where("user_id = ? AND trader_id = ?", user_id, trader_id).exists?
 			@subscription = @user.subscriptions.create()
 			@subscription.trader_id = @trader.id
 
@@ -57,7 +53,7 @@ class SubscriptionController < ApplicationController
 	      		@subscription = @user.subscriptions.create()
 	      		@subscription.trader_id = @trader.id
 	    	end 
-      	#end 
+      	end 
 	end
 
 	def destroy 
