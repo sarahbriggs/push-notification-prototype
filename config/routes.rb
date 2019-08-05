@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'trader/new' => 'trader#new'
   post 'trader/new' => 'trader#create'
   delete '/trader' => 'trader#destroy'
+  post '/trader/message' => 'trader#publish_message'
   resources :trader
 
   #get 'platform_application/new' => 'platform_application#new'
