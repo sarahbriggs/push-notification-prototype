@@ -1,5 +1,5 @@
 class TraderController < ApplicationController
-	protect_from_forgery :except => [:destroy, :create]
+	protect_from_forgery :except => [:destroy, :create, :publish_message]
 	@@sns_client ||= Aws::SNS::Client.new
 
 	def index 
@@ -48,6 +48,7 @@ class TraderController < ApplicationController
 			topic_arn: @trader.trader_arn,
 			message: @message
 		})
+		render :json => {:message => @message}
 	end
 
 	private
