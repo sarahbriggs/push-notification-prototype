@@ -19,7 +19,7 @@ class SubscriptionController < ApplicationController
 
 		subscription_exists = @subscription.exists?
 
-		if !subscription_exists
+		#if !subscription_exists
 			@subscription = @user.subscriptions.create()
 			@subscription.trader_id = @trader.id
 
@@ -57,7 +57,7 @@ class SubscriptionController < ApplicationController
 	      		@subscription = @user.subscriptions.create()
 	      		@subscription.trader_id = @trader.id
 	    	end 
-      	end 
+      	#end 
 	end
 
 	def destroy 
