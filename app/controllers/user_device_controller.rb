@@ -48,13 +48,7 @@ class UserDeviceController < ApplicationController
 				return_subscription_arn: false
 			})
 			@device_subscription.subscription_arn = response.subscription_arn
-
-			if @device_subscription.save
-				render :json => {:subscription_arn => 
-					@device_subscription.subscription_arn}
-			else 
-				render :json => {}
-			end 
+			@device_subscription.save
 		end 
 	end
 end
