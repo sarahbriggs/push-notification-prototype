@@ -48,12 +48,12 @@ class SubscriptionController < ApplicationController
 	end
 
 	def destroy 
-		@user = session[:user_id]
-		@trader = params[:trader]
+		@user = User.find(params[:user_id])
+		@trader = Trader.find(params[:trader_id])
 
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 
-			@sub = Subscription.find_by(user_device_id: dev.id, trader_id: @trader)
+			@sub = Subscription.find_by(user_device_id: dev.id, trader_id: @trader.id)
 			@sub_arn = @sub.subscription_arn
 
 			if Subscription.destroy(@sub.id)
@@ -63,11 +63,9 @@ class SubscriptionController < ApplicationController
 						subscription_arn: @sub_arn
 					})
 				end 
-				redirect_to action: 'index', alert: "SUCCESS"
-			else
-	          	redirect_to action: 'new', alert: "ERROR"
 	        end
-		end 
+	        render :json => {:deleted => true}
+		end
 	end
 
 	def show
