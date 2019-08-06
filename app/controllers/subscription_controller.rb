@@ -27,7 +27,9 @@ class SubscriptionController < ApplicationController
 		for dev in devices_list.to_a do 
 			@subscription = Subscription.where(:trader_id => 
 			trader_id, :user_device_id => dev.id).first_or_create
-
+			puts "------------------------------------"
+			puts dev.device_endpoint
+			puts "------------------------------------"
 			# subscribe all user devices 
 			resp = @@sns_client.subscribe({
 				topic_arn: @trader.trader_arn,
