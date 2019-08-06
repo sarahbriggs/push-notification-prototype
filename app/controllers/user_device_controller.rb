@@ -8,7 +8,7 @@ class UserDeviceController < ApplicationController
 		platform = params[:platform]
 		@user = User.find(user_id)
 
-		@dev = UserDevice.where("device_token = ? AND user_id = ?", token, user_id).first_or_create
+		@device = UserDevice.where("device_token = ? AND user_id = ?", token, user_id).first_or_create
 
 		if platform.eql? "APNS"
 			@platform_arn = ENV['APNS_ARN']
