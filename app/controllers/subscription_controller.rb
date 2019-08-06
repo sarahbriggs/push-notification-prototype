@@ -6,7 +6,7 @@ class SubscriptionController < ApplicationController
 	
 
 	def index
-		@subscriptions = User.find(params[:id]).subscriptions
+		@subscriptions = User.find(params[:id]).first.subscriptions
 	end
 
 	def new
