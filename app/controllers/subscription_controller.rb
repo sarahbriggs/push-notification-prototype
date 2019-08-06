@@ -54,6 +54,9 @@ class SubscriptionController < ApplicationController
 		devices_list = @user.user_devices
 		for dev in devices_list.to_a do 
 			@sub = Subscription.where(:trader_id => @trader.id, :user_device_id => dev.id).first
+			puts "-------------"
+			puts @sub.trader_id
+			puts "-------------"
 			@sub_arn = @sub.subscription_arn
 
 			if Subscription.destroy(@sub.id)
