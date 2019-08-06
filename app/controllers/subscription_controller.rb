@@ -64,8 +64,8 @@ class SubscriptionController < ApplicationController
 					})
 				end 
 	        end
-	        render :json => {:deleted => true}
 		end
+		render :json => {:deleted => true}
 	end
 
 	def show
