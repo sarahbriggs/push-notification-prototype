@@ -1,4 +1,5 @@
 class UserDevice < ApplicationRecord
-	belongs_to :user
 	has_many :subscriptions
+	has_many :traders, through: :subscriptions
+	belongs_to :user
 end
