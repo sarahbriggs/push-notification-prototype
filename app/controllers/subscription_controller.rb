@@ -39,12 +39,9 @@ class SubscriptionController < ApplicationController
 			})
 
 			@subscription.subscription_arn = resp.subscription_arn
-			if @subscription.save
-				render :json => {:subscription_arn => @subscription.subscription_arn}
-		    else
-		        render :json => {}
-		    end
+			@subscription.save]
 		end 
+		render :json => {:created => true}
 	end
 
 	def destroy 
