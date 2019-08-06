@@ -38,7 +38,7 @@ class UserDeviceController < ApplicationController
 
 		for subscription in subscription_list.to_a do
 			@trader = Trader.find(subscription.trader_id)
-			@device_subscription = @user.subscriptions.create()
+			@device_subscription = @device.subscriptions.create()
 			@device_subscription.trader_id = @trader.id
 
 			response = @@sns_client.subscribe({
