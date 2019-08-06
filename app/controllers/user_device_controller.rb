@@ -7,14 +7,8 @@ class UserDeviceController < ApplicationController
 		user_id = params[:user_id]
 		platform = params[:platform]
 		@user = User.find(user_id)
-
-		@dev = UserDevice.where("device_token = ? AND user_id = ?", token, user_id)
-		if !(@dev.exists?)
-			@device = @user.user_devices.create()
-			@device.device_token = token
-		else
-			@device = @dev.first 
-		end
+		@device = @user.user_devices.create()
+		@device.device_token = token
 
 		if platform.eql? "APNS"
 			@platform_arn = ENV['APNS_ARN']
@@ -44,7 +38,7 @@ class UserDeviceController < ApplicationController
 
 		for subscription in subscription_list.to_a do
 			@trader = Trader.find(subscription.trader_id)
-			@device_subscription = @user.subscriptions.create()
+			@device_subscription = @device.subscriptions.create()
 			@device_subscription.trader_id = @trader.id
 
 			response = @@sns_client.subscribe({
@@ -54,13 +48,7 @@ class UserDeviceController < ApplicationController
 				return_subscription_arn: false
 			})
 			@device_subscription.subscription_arn = response.subscription_arn
-
-			if @device_subscription.save
-				render :json => {:subscription_arn => 
-					@device_subscription.subscription_arn}
-			else 
-				render :json => {}
-			end 
+			@device_subscription.save
 		end 
 	end
 end
