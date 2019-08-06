@@ -33,7 +33,9 @@ class UserDeviceController < ApplicationController
 		end
 
 		# create new device-subscription for all user, trader pairs  
-		subscription_list = @user.subscriptions
+		first_device = @user.user_devices.first 
+		subscription_list = first_device.subscriptions
+		
 		for subscription in subscription_list.to_a do
 			@trader = Trader.find(subscription.trader_id)
 			@device_subscription = @user.subscriptions.create()
