@@ -6,7 +6,9 @@ class SubscriptionController < ApplicationController
 	
 
 	def index
-		@subscriptions = User.where(:id => params[:id]).first.subscriptions
+		@user = User.find(params[:id])
+		@device = @user.user_devices.first
+		@subscriptions = @device.subscriptions
 	end
 
 	def new
