@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_07_26_173601) do
 
-  create_table "platform_applications", force: :cascade do |t|
-    t.string "platform_name"
-    t.string "platform_arn"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "subscriptions", force: :cascade do |t|
     t.string "subscription_arn"
     t.integer "user_device_id"
@@ -29,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_173601) do
     t.index ["user_device_id", "trader_id"], name: "index_subscriptions_on_user_and_trader", unique: true
     t.index ["user_device_id"], name: "index_subscriptions_on_user_device_id"
   end
-  
+
   create_table "traders", force: :cascade do |t|
     t.string "name"
     t.string "trader_arn"

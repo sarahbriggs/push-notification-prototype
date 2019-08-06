@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'subscribe' => 'subscription#new'
   delete '/subscription' => 'subscription#destroy'
   get 'my_subscriptions' => 'subscription#show'
+  post 'logout' => 'subscription#logout'
   resources :subscription
 
   get 'users/index'
@@ -28,10 +29,6 @@ Rails.application.routes.draw do
   delete '/trader' => 'trader#destroy'
   post '/trader/message' => 'trader#publish_message'
   resources :trader
-
-  #get 'platform_application/new' => 'platform_application#new'
-  post 'platform/new' => 'platform_application#new'
-  resources :platform_application
 
   post 'device' => 'user_device#create'
   #post 'device/newEndpoint' => 'device#new_endpoint'

@@ -4,7 +4,6 @@ class SubscriptionController < ApplicationController
 
 	@@sns_client ||= Aws::SNS::Client.new
 	
-
 	def index
 		@user = User.find(params[:id])
 		@device = @user.user_devices.first
@@ -44,6 +43,37 @@ class SubscriptionController < ApplicationController
 		    end
 		end 
 	end
+
+	def logout
+		user_id = params[:user_id]
+		device_token = params[:token]
+		
+		@user_device = UserDevice.where(:user_id => user_id, :device_token => device_token).first 
+		
+		@subscription_list = @user_device.subscriptions
+		for subscription in @subscription_list.to_a do
+			@@sns_client.unsubscribe({
+				subscription_arn: subscription.subscription_arn
+			})
+			subscription.subscription_arn = "DUMMY"
+			subscription.save 	
+		end 
+	end 
+	
+	# def login
+	# 	user_id = params[:user_id]
+	# 	device_token = params[:token]
+
+	# 	@subscription_list = device_token.subscriptions
+	# 	for subscription in @subscription_list.to_a do
+	# 		@@sns_client.unsubscribe({
+	# 			subscription_arn: subscription.subscription_arn
+	# 		})
+
+	# 		subscription.subscription_arn = "DUMMY"
+	# 		subscription.save 	
+	# 	end 
+	# end 
 
 	def destroy 
 		@user = session[:user_id]
