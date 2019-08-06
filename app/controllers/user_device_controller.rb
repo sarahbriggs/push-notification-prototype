@@ -7,8 +7,8 @@ class UserDeviceController < ApplicationController
 		user_id = params[:user_id]
 		platform = params[:platform]
 		@user = User.find(user_id)
-
-		@device = UserDevice.where("device_token = ? AND user_id = ?", token, user_id).first_or_create
+		@device = @user.user_devices.create()
+		@device.device_token = token
 
 		if platform.eql? "APNS"
 			@platform_arn = ENV['APNS_ARN']
@@ -22,10 +22,6 @@ class UserDeviceController < ApplicationController
 		  platform_application_arn: @platform_arn,
 		  token: @device.device_token
 		})
-		puts "----------------------------"
-		puts resp
-		puts "----------------------------"
-
 		@device.device_endpoint = resp.endpoint_arn
 		if @device.save
 			render :json => {
