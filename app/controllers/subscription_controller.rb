@@ -39,7 +39,7 @@ class SubscriptionController < ApplicationController
 			})
 
 			@subscription.subscription_arn = resp.subscription_arn
-			@subscription.save]
+			@subscription.save
 		end 
 		render :json => {:created => true}
 	end
