@@ -14,7 +14,7 @@ class UserDeviceController < ApplicationController
 			@platform_arn = ENV['APNS_ARN']
 		elsif platform.eql? "APNS_SANDBOX"
 			@platform_arn = ENV['APNS_SANDBOX_ARN']
-		elsif platform.eql? "GCM" || platform.eql? "FCM"
+		elsif platform.eql? "FCM"
 			@platform_arn = ENV['FCM_ARN']
 		end 
 
