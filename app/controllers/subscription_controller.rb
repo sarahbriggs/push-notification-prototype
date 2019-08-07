@@ -58,6 +58,7 @@ class SubscriptionController < ApplicationController
 			subscription.subscription_arn = "DUMMY"
 			subscription.save 	
 		end 
+		render :json => {:logged_out => true}
 	end 
 	
 	def login
@@ -84,6 +85,7 @@ class SubscriptionController < ApplicationController
 				subscription.save
 			end 
 		end 
+		render :json => {:logged_in => true}
 	end 
 
 	def destroy 
