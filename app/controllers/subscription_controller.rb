@@ -67,7 +67,7 @@ class SubscriptionController < ApplicationController
 		@user_device = UserDevice.where(:user_id => user_id,
 		 :device_token => device_token).first 
 
-		@subscription_list = device_token.subscriptions
+		@subscription_list = @user_device.subscriptions
 		for subscription in @subscription_list.to_a do
 			if subscription.subscription_arn.eql? "DUMMY"
 				@trader = Trader.find(subscription.trader_id)
