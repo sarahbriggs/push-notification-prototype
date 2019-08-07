@@ -47,7 +47,8 @@ class SubscriptionController < ApplicationController
 		user_id = params[:user_id]
 		device_token = params[:token]
 		
-		@user_device = UserDevice.where(:user_id => user_id, :device_token => device_token).first 
+		@user_device = UserDevice.where(:user_id => user_id, 
+			:device_token => device_token).first 
 		
 		@subscription_list = @user_device.subscriptions
 		for subscription in @subscription_list.to_a do
@@ -59,20 +60,31 @@ class SubscriptionController < ApplicationController
 		end 
 	end 
 	
-	# def login
-	# 	user_id = params[:user_id]
-	# 	device_token = params[:token]
+	def login
+		user_id = params[:user_id]
+		device_token = params[:token]
+		
+		@user_device = UserDevice.where(:user_id => user_id,
+		 :device_token => device_token).first 
 
-	# 	@subscription_list = device_token.subscriptions
-	# 	for subscription in @subscription_list.to_a do
-	# 		@@sns_client.unsubscribe({
-	# 			subscription_arn: subscription.subscription_arn
-	# 		})
+		@subscription_list = device_token.subscriptions
+		for subscription in @subscription_list.to_a do
+			if subscription.subscription_arn.eql? "DUMMY"
+				@trader = Trader.find(subscription.trader_id)
 
-	# 		subscription.subscription_arn = "DUMMY"
-	# 		subscription.save 	
-	# 	end 
-	# end 
+				# make new subscription arn 
+				resp = @@sns_client.subscribe({
+					topic_arn: @trader.trader_arn,
+					protocol: 'application',
+					endpoint: @user_device.device_endpoint,
+					return_subscription_arn: false
+				})
+
+				subscription.subscription_arn = resp.subscription_arn
+				subscription.save
+			end 
+		end 
+	end 
 
 	def destroy 
 		@user = User.find(params[:user_id])
