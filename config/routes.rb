@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'subscribe' => 'subscription#new'
   delete '/subscription' => 'subscription#destroy'
   get 'my_subscriptions' => 'subscription#show'
-  post 'logout' => 'subscription#logout'
+  post 'subscription/logout' => 'subscription#logout'
+  post 'subscription/login' => 'subscription#login'
   resources :subscription
 
   get 'users/index'
