@@ -1,11 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Project Overview
 
-Things you may want to cover:
+Rails API and associated database for subscribing to traders and receiving push notifications.  
 
-* Ruby version
+---
+
+# Environment Configuration
+
+Ruby version: 2.5.1
+
+Rails version: 5.2.3
+
+Heroku Host: https://powerful-journey-91657.herokuapp.com/
+	
+---
 
 * System dependencies
 
